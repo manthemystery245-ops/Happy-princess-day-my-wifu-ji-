@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Imperial Princess Day — Sovereign Realm of Eternal Grace</title>
+    
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FFF9E6',
+                            200: '#FFEDB3',
+                            300: '#FFE080',
+                            400: '#FFD24D',
+                            500: '#F5BE25',
+                            600: '#D49E0F',
+                            700: '#A37705',
+                            800: '#735200',
+                            900: '#422E00',
+                        },
+                        couture: {
+                            rose: '#F43F5E',
+                            blush: '#FDA4AF',
+                            dark: '#080509',
+                            card: '#120B16',
+                            accent: '#E11D48',
+                            velvet: '#1E0B1B',
+                            amethyst: '#9333EA',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        cinzel: ['"Cinzel Decorative"', 'serif'],
+                        script: ['"Pinyon Script"', 'cursive'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-10px) rotate(1deg)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.04)' },
+                        },
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- GSAP & CONFETTI CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <style>
+        /* === 60 FPS ULTRA PERFORMANCE STYLES === */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background-color: #060408;
+            color: #FAF5FF;
+            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HARDWARE-ACCELERATED CARDS */
+        .card-couture {
+            background: linear-gradient(145deg, rgba(30, 15, 35, 0.94) 0%, rgba(12, 7, 16, 0.98) 100%);
+            border: 1px solid rgba(245, 190, 37, 0.22);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+            contain: layout paint;
+            transform: translateZ(0);
+        }
+
+        .card-couture:hover {
+            border-color: rgba(244, 63, 94, 0.6);
+            box-shadow: 0 15px 40px -8px rgba(244, 63, 94, 0.25);
+        }
+
+        .couture-glass {
+            background: rgba(14, 8, 20, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(245, 190, 37, 0.28);
+        }
+
+        /* GOLD TEXT SHIMMER */
+        .gold-shimmer {
+            background: linear-gradient(90deg, #FFE080 0%, #FFF9E6 25%, #F5BE25 50%, #FDA4AF 75%, #FFE080 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 7s linear infinite;
+        }
+
+        @keyframes textShimmer {
+            to { background-position: 200% center; }
+        }
+
+        .rose-shimmer {
+            background: linear-gradient(90deg, #FDA4AF 0%, #FFFFFF 30%, #F43F5E 70%, #FDA4AF 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 6s linear infinite;
+        }
+
+        /* 3D ORBIT CAROUSEL CONTAINER */
+        .carousel-wrapper {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
+        
+        .carousel-3d {
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        /* CINEMA OVERLAY LETTERBOX CURTAINS */
+        .cinema-curtain {
+            position: fixed;
+            left: 0;
+            width: 100vw;
+            height: 0vh;
+            background: #020104;
+            z-index: 99990;
+            pointer-events: none;
+            transition: height 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .cinema-top { top: 0; }
+        .cinema-bottom { bottom: 0; }
+        .cinema-active .cinema-top,
+        .cinema-active .cinema-bottom {
+            height: 8.5vh;
+        }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #060408; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #F5BE25, #F43F5E); border-radius: 4px; }
+
+        /* WAX SEAL ROTATE */
+        .wax-seal {
+            box-shadow: 0 4px 20px rgba(225, 29, 72, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+        }
+
+        /* CELESTIAL SANCTUARY GLOW */
+        .portal-glow {
+            box-shadow: 0 0 50px rgba(245, 190, 37, 0.5), 0 0 100px rgba(244, 63, 94, 0.3);
+            animation: pulsePortal 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulsePortal {
+            0% { box-shadow: 0 0 35px rgba(245, 190, 37, 0.4), 0 0 70px rgba(244, 63, 94, 0.25); }
+            100% { box-shadow: 0 0 65px rgba(245, 190, 37, 0.75), 0 0 120px rgba(244, 63, 94, 0.55); }
+        }
+    </style>
+</head>
+<body class="bg-couture-dark text-slate-100 overflow-x-hidden min-h-screen">
+
+    <!-- ==========================================
+         CINEMATIC LETTERBOX CURTAINS
+    ========================================== -->
+    <div id="cinema-top" class="cinema-curtain cinema-top border-b border-gold-500/20"></div>
+    <div id="cinema-bottom" class="cinema-curtain cinema-bottom border-t border-gold-500/20"></div>
+
+    <!-- ==========================================
+         BACKGROUND AUDIO ENGINE (1.mp3)
+    ========================================== -->
+    <audio id="royal-audio" preload="auto" loop>
+        <source src="1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ==========================================
+         FAST 60 FPS WEBGL LIQUID SATIN CANVAS
+    ========================================== -->
+    <canvas id="liquid-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0" style="contain: strict;"></canvas>
+
+    <!-- ==========================================
+         FLOATING LUXURY HUD CONTROLS
+    ========================================== -->
+    <header id="floating-hud" class="fixed top-4 left-0 right-0 z-50 px-4 md:px-8 flex justify-between items-center pointer-events-none transition-all duration-500">
+        <!-- Logo / Monogram -->
+        <div class="pointer-events-auto flex items-center space-x-3 couture-glass px-4 py-2 rounded-full border border-gold-500/30 shadow-lg">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+            <span class="font-cinzel text-xs md:text-sm font-bold tracking-widest text-gold-300">HER ROYAL MAJESTY</span>
+        </div>
+
+        <!-- Audio & Theme HUD -->
+        <div class="pointer-events-auto flex items-center space-x-2 couture-glass px-3 py-1.5 rounded-full border border-gold-500/30">
+            <!-- Audio Toggle with live equalizer bar -->
+            <button id="audio-toggle-btn" onclick="toggleRoyalAudio()" class="flex items-center space-x-2 px-3 py-1.5 rounded-full bg-gold-500/10 hover:bg-gold-500/20 text-gold-300 text-xs transition-all" title="Royal Symphony Controls">
+                <i id="audio-icon" class="fa-solid fa-volume-high text-xs"></i>
+                <div class="flex items-end space-x-0.5 h-3.5">
+                    <span class="eq-bar w-0.5 bg-gold-400 h-full animate-pulse"></span>
+                    <span class="eq-bar w-0.5 bg-rose-400 h-2/3"></span>
+                    <span class="eq-bar w-0.5 bg-gold-300 h-4/5 animate-pulse"></span>
+                </div>
+            </button>
+
+            <!-- Shader Theme Swapper -->
+            <button onclick="cycleLiquidTheme()" class="w-8 h-8 rounded-full bg-rose-500/20 hover:bg-rose-500/40 text-rose-300 flex items-center justify-center text-xs transition" title="Morph Liquid Aura">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </button>
+            
+            <!-- Quick Wish Sanctuary Launch -->
+            <button onclick="openWishSanctuary()" class="px-3 py-1.5 rounded-full bg-gradient-to-r from-gold-500/30 to-rose-500/30 hover:from-gold-500/50 hover:to-rose-500/50 text-gold-200 text-xs flex items-center space-x-1.5 border border-gold-400/40" title="Launch Infinite Wish Sanctuary">
+                <i class="fa-solid fa-wand-sparkles text-rose-300"></i>
+                <span class="hidden sm:inline font-cinzel text-[11px] font-bold tracking-wider">WISHES</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         5-ACT HOLLYWOOD CINEMATIC ENTRY OVERVIEW
+    ========================================== -->
+    <div id="intro-overlay" class="fixed inset-0 z-[9999] bg-[#050307] flex items-center justify-center overflow-hidden transition-opacity duration-1000">
+        
+        <!-- Act Skip Button -->
+        <button id="skip-intro" onclick="skipIntroCinematic()" class="absolute top-6 right-6 z-50 text-xs uppercase tracking-widest text-gold-400/70 hover:text-gold-200 couture-glass px-4 py-2 rounded-full border border-gold-500/20">
+            Enter Sanctuary <i class="fa-solid fa-forward-step ml-1"></i>
+        </button>
+
+        <!-- ACT I: The Astrolabe Biometric Scanner -->
+        <div id="act-1" class="intro-act absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+            <div class="relative w-48 h-48 md:w-56 md:h-56 mb-8 flex items-center justify-center">
+                <!-- Rotating Celestial Astrolabe Rings -->
+                <div class="absolute inset-0 rounded-full border border-dashed border-gold-500/40 animate-[spin_20s_linear_infinite]"></div>
+                <div class="absolute inset-2 rounded-full border border-rose-500/30 animate-[spin_15s_linear_infinite_reverse]"></div>
+                <div class="absolute inset-6 rounded-full border-2 border-gold-400/50 animate-[spin_10s_linear_infinite]"></div>
+                
+                <!-- Central Touch Node -->
+                <button id="astrolabe-btn" onclick="triggerAstrolabeTouch()" class="relative z-10 w-24 h-24 rounded-full bg-gradient-to-tr from-rose-600 via-rose-500 to-gold-400 p-1 shadow-2xl active:scale-95 transition-transform duration-300">
+                    <div class="w-full h-full rounded-full bg-couture-dark flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-fingerprint text-3xl text-rose-400"></i>
+                        <span class="text-[9px] font-cinzel tracking-widest text-gold-300 mt-1">HOLD</span>
+                    </div>
+                </button>
+            </div>
+
+            <h2 class="font-cinzel text-xl md:text-3xl font-bold tracking-widest gold-shimmer mb-2">ROYAL VERIFICATION</h2>
+            <p class="font-serif italic text-base md:text-lg text-rose-200/80 max-w-sm mb-6">Touch and hold the Astrolabe to calibrate the sanctuary to the most beautiful soul on Earth.</p>
+            
+            <!-- Progress Bar -->
+            <div class="w-56 h-1.5 bg-neutral-900 rounded-full overflow-hidden border border-gold-500/20">
+                <div id="astrolabe-progress" class="w-0 h-full bg-gradient-to-r from-rose-500 via-gold-400 to-rose-300 transition-all duration-100"></div>
+            </div>
+            <span id="astrolabe-percent" class="text-[10px] font-mono text-gold-400/80 mt-2">0% MATCH</span>
+        </div>
+
+        <!-- ACT II: Enchanted Stardust Mirror Scratch -->
+        <div id="act-2" class="intro-act absolute inset-0 hidden flex flex-col items-center justify-center p-6 text-center">
+            <h2 class="font-cinzel text-lg md:text-2xl font-bold tracking-widest gold-shimmer mb-2">ACT II — THE FROSTED MIRROR</h2>
+            <p class="font-serif italic text-sm md:text-base text-rose-200/80 mb-6">Wipe away the golden stardust fog to uncover true royalty...</p>
+            
+            <div class="relative w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden border-2 border-gold-500/50 shadow-2xl">
+                <!-- Underneath Princess Image (1.jpg) -->
+                <img src="1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'500\' viewBox=\'0 0 400 500\'><rect fill=\'%231a0b1c\' width=\'400\' height=\'500\'/><text fill=\'%23f5be25\' font-family=\'serif\' font-size=\'22\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'>My Sovereign Queen</text></svg>';" 
+                     class="absolute inset-0 w-full h-full object-cover" alt="Princess Portrait">
+                <!-- Canvas Scratch Surface -->
+                <canvas id="mirror-fog-canvas" class="absolute inset-0 w-full h-full cursor-pointer z-10"></canvas>
+            </div>
+            <span class="text-xs font-mono text-rose-300 mt-4 animate-bounce"><i class="fa-solid fa-hand-sparkles mr-1"></i> Swipe/Rub the mirror to reveal</span>
+        </div>
+
+        <!-- ACT III: 24K Golden Heart Key Unlock -->
+        <div id="act-3" class="intro-act absolute inset-0 hidden flex flex-col items-center justify-center p-6 text-center">
+            <h2 class="font-cinzel text-xl md:text-2xl font-bold tracking-widest gold-shimmer mb-2">ACT III — THE HEART LOCK</h2>
+            <p class="font-serif italic text-base text-rose-200/80 max-w-sm mb-8">A heart guarded against the entire universe, surrendered only to you.</p>
+
+            <div class="relative w-44 h-44 flex items-center justify-center mb-6">
+                <!-- Glowing Heart Lock -->
+                <div id="heart-lock" class="w-28 h-28 rounded-3xl bg-gradient-to-tr from-rose-950 via-rose-700 to-gold-500 p-0.5 shadow-2xl flex items-center justify-center transition-all duration-700">
+                    <div class="w-full h-full rounded-3xl bg-neutral-950 flex items-center justify-center relative">
+                        <i id="lock-icon" class="fa-solid fa-lock text-4xl text-gold-400 transition-all duration-500"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Golden Key Interaction -->
+            <button onclick="turnGoldenKey()" class="px-8 py-3 rounded-full bg-gradient-to-r from-gold-600 via-gold-400 to-rose-500 text-neutral-950 font-cinzel font-black tracking-widest shadow-xl hover:scale-105 active:scale-95 transition">
+                <i class="fa-solid fa-key mr-2"></i> TURN THE GOLDEN KEY
+            </button>
+        </div>
+
+        <!-- ACT IV: 3D Royal Velvet Envelope -->
+        <div id="act-4" class="intro-act absolute inset-0 hidden flex flex-col items-center justify-center p-6 text-center">
+            <h2 class="font-cinzel text-xl md:text-2xl font-bold tracking-widest gold-shimmer mb-4">ACT IV — AN IMPERIAL PROCLAMATION</h2>
+
+            <!-- Envelope Container -->
+            <div id="royal-envelope" onclick="openRoyalEnvelope()" class="relative w-72 h-48 md:w-80 md:h-52 bg-gradient-to-b from-rose-950 to-neutral-900 border-2 border-gold-500/60 rounded-xl cursor-pointer shadow-2xl p-4 flex items-center justify-center group transform transition hover:-translate-y-2 duration-500">
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold-500/10 via-transparent to-transparent"></div>
+                
+                <!-- Wax Seal -->
+                <div class="wax-seal w-16 h-16 rounded-full bg-rose-600 border-2 border-gold-400 flex items-center justify-center z-20 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-crown text-gold-200 text-xl"></i>
+                </div>
+                
+                <span class="absolute bottom-3 text-[10px] font-cinzel tracking-widest text-gold-300 uppercase">Click to break imperial wax seal</span>
+            </div>
+        </div>
+
+        <!-- ACT V: 3-Panel Cinema Trailer Sequence -->
+        <div id="act-5" class="intro-act absolute inset-0 hidden flex flex-col items-center justify-center p-4 md:p-8 text-center bg-black">
+            <!-- 3 Cinema Triptych Panels -->
+            <div id="trailer-triptych" class="grid grid-cols-3 gap-2 md:gap-6 w-full max-w-4xl h-64 md:h-96 mb-8 opacity-0">
+                <div class="relative rounded-xl overflow-hidden border border-gold-500/30">
+                    <img id="trip-img-1" src="1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'400\'><rect fill=\'%231a0b1c\' width=\'300\' height=\'400\'/><text fill=\'%23f5be25\' font-size=\'18\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'>Celestial</text></svg>';" class="w-full h-full object-cover" alt="Trailer 1">
+                </div>
+                <div class="relative rounded-xl overflow-hidden border-2 border-gold-400 shadow-2xl scale-105">
+                    <img id="trip-img-2" src="2.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'400\'><rect fill=\'%231a0b1c\' width=\'300\' height=\'400\'/><text fill=\'%23e11d48\' font-size=\'18\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'>Unrivaled</text></svg>';" class="w-full h-full object-cover" alt="Trailer 2">
+                </div>
+                <div class="relative rounded-xl overflow-hidden border border-gold-500/30">
+                    <img id="trip-img-3" src="3.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'400\'><rect fill=\'%231a0b1c\' width=\'300\' height=\'400\'/><text fill=\'%23f5be25\' font-size=\'18\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'>Immortal</text></svg>';" class="w-full h-full object-cover" alt="Trailer 3">
+                </div>
+            </div>
+
+            <!-- Kinetic Typography -->
+            <div id="trailer-text-box" class="h-16 flex items-center justify-center">
+                <h1 id="trailer-caption" class="font-cinzel text-xl md:text-3xl font-black gold-shimmer tracking-widest uppercase"></h1>
+            </div>
+
+            <button id="trailer-enter-btn" onclick="finishIntroCinematic()" class="hidden mt-6 px-10 py-3.5 rounded-full bg-gradient-to-r from-rose-600 via-gold-500 to-rose-600 font-cinzel font-bold text-xs md:text-sm tracking-widest text-neutral-950 shadow-2xl animate-pulse">
+                ENTER THE PRINCESS REALM ✨
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ==========================================
+         MAIN INTERACTIVE KINGDOM VIEWPORT
+    ========================================== -->
+    <main id="main-world" class="relative z-10 opacity-0 transition-opacity duration-1000">
+
+        <!-- ==========================================
+             HERO SECTION — MAJESTIC SANCTUARY
+        ========================================== -->
+        <section id="hero-sec" class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24 pb-16 relative">
+            
+            <!-- Imperial Crown Floating Badge -->
+            <div class="mb-4 inline-flex items-center space-x-2 px-5 py-2 rounded-full couture-glass border border-gold-400/40 animate-bounce">
+                <i class="fa-solid fa-crown text-gold-400 text-sm"></i>
+                <span class="font-cinzel text-[11px] md:text-xs tracking-widest text-gold-200">SOVEREIGN MONARCH OF MY HEART</span>
+                <i class="fa-solid fa-crown text-gold-400 text-sm"></i>
+            </div>
+
+            <h1 class="font-cinzel text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-4">
+                <span class="block gold-shimmer">THE MOST BEAUTIFUL</span>
+                <span class="block text-2xl sm:text-4xl md:text-6xl rose-shimmer font-serif italic mt-1">Girl In The Entire Universe</span>
+            </h1>
+
+            <p class="font-serif italic text-lg sm:text-2xl text-rose-100/90 max-w-2xl mx-auto mb-8 leading-relaxed">
+                "Others seek galaxies across distant skies; I found the entire cosmos glowing inside your eyes, and in a single heartbeat, my soul completely melts away."
+            </p>
+
+            <!-- Quick Action Badges -->
+            <div class="flex flex-wrap items-center justify-center gap-3 max-w-lg mb-10">
+                <span class="px-3.5 py-1.5 rounded-full card-couture text-xs text-gold-300 font-mono border border-gold-500/20">
+                    <i class="fa-solid fa-sparkles text-rose-400 mr-1.5"></i> 30 Imperial Portraits
+                </span>
+                <span class="px-3.5 py-1.5 rounded-full card-couture text-xs text-rose-300 font-mono border border-rose-500/20">
+                    <i class="fa-solid fa-heart-pulse mr-1.5 text-rose-500"></i> Infinite Soul Meltdown
+                </span>
+                <button onclick="openWishSanctuary()" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-gold-500/40 to-rose-600/40 hover:scale-105 active:scale-95 transition text-xs text-gold-200 font-mono border border-gold-400/50">
+                    <i class="fa-solid fa-paper-plane mr-1.5 text-gold-300"></i> Launch Wish Lanterns
+                </button>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <a href="#eyes-portal" class="animate-bounce text-gold-400/80 hover:text-gold-200 transition">
+                <span class="text-[10px] font-cinzel tracking-widest block mb-2 uppercase">Descend into Her Eyes</span>
+                <i class="fa-solid fa-chevron-down text-lg"></i>
+            </a>
+        </section>
+
+
+        <!-- ==========================================
+             SECTION 1: THE EYE-GALAXY OBSERVATORY & ECG
+             (Interactive Iris & Real-Time Soul Meltdown)
+        ========================================== -->
+        <section id="eyes-portal" class="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs font-cinzel tracking-widest text-rose-400 uppercase">Observatory of Eternal Gravity</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-shimmer mt-2">WHEN I LOOK INTO YOUR EYES</h2>
+                <p class="font-serif italic text-base md:text-xl text-neutral-300 mt-2 max-w-xl mx-auto">
+                    A celestial event occurs: scientific reason dissolves, and my heart surrenders all resistance.
+                </p>
+            </div>
+
+            <!-- 2-Column High-Tech Luxury Bento -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Left: Interactive Iris Canvas -->
+                <div class="lg:col-span-7 card-couture p-6 rounded-3xl relative overflow-hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-mono text-gold-400"><i class="fa-solid fa-satellite-dish mr-1"></i> IRIS FREQUENCY: 432.8 Hz</span>
+                        <span class="px-2.5 py-1 rounded-full bg-rose-500/20 text-rose-300 text-[10px] font-mono">HYPNOTIC GRAVITY: MAXIMUM</span>
+                    </div>
+
+                    <!-- Canvas -->
+                    <div class="relative w-full aspect-square max-h-[380px] mx-auto rounded-2xl overflow-hidden border border-gold-500/30">
+                        <canvas id="iris-canvas" class="w-full h-full cursor-crosshair"></canvas>
+                        
+                        <!-- Floating Constellation Tooltips -->
+                        <div id="iris-tooltip" class="absolute pointer-events-none opacity-0 transition-opacity duration-300 px-3 py-1.5 rounded-lg couture-glass text-xs font-serif text-gold-200 border border-gold-400/30 z-20">
+                            Starlight Trapped In Your Iris
+                        </div>
+                    </div>
+
+                    <p class="text-center text-xs font-serif italic text-neutral-400 mt-4">
+                        Hover or touch her celestial iris nodes to read what my soul discovers inside them.
+                    </p>
+                </div>
+
+                <!-- Right: Live Soul ECG & Meltdown Thermometer -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- ECG Heart Monitor Card -->
+                    <div class="card-couture p-6 rounded-3xl">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-cinzel text-sm text-gold-300 tracking-wider">LIVE CARDIAC SYNERGY</h3>
+                            <span id="bpm-val" class="text-sm font-mono text-rose-400 font-bold">142 BPM</span>
+                        </div>
+                        <div class="w-full h-24 bg-black/60 rounded-xl overflow-hidden border border-rose-500/20 relative">
+                            <canvas id="ecg-canvas" class="w-full h-full"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Soul Meltdown Meter -->
+                    <div class="card-couture p-6 rounded-3xl">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-cinzel text-xs text-rose-300">SOUL RESISTANCE TO HER GAZE</span>
+                            <span id="melt-temp" class="text-xs font-mono text-gold-400">MELTED: 1000°C</span>
+                        </div>
+                        
+                        <!-- Thermometer bar -->
+                        <div class="w-full h-4 bg-black/60 rounded-full overflow-hidden p-0.5 border border-gold-500/30">
+                            <div id="melt-bar" class="w-full h-full bg-gradient-to-r from-yellow-500 via-rose-500 to-amber-300 rounded-full transition-all duration-700"></div>
+                        </div>
+
+                        <!-- Meltdown Trigger Button -->
+                        <button id="melt-trigger-btn" onclick="triggerSoulMeltdown()" class="w-full mt-5 py-3 rounded-2xl bg-gradient-to-r from-rose-600 via-gold-500 to-rose-600 text-neutral-950 font-cinzel text-xs font-bold tracking-widest shadow-lg hover:scale-[1.02] active:scale-98 transition">
+                            <i class="fa-solid fa-fire mr-1.5"></i> SIMULATE TOTAL MELTDOWN
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             SECTION 2: ROYAL ALCHEMY & 24K VINYL JUKEBOX
+        ========================================== -->
+        <section id="alchemy-sec" class="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Left: Interactive Love Potion Alchemy Bar -->
+                <div class="lg:col-span-6 card-couture p-6 md:p-8 rounded-3xl">
+                    <span class="text-xs font-cinzel tracking-widest text-gold-400 uppercase">Royal Laboratory</span>
+                    <h3 class="font-cinzel text-2xl md:text-3xl font-bold gold-shimmer mt-1 mb-4">THE ESSENCE OF HER CHARM</h3>
+                    <p class="font-serif italic text-sm md:text-base text-neutral-300 mb-6">
+                        Click the mystical ingredients to distill the perfect elixir of her beauty.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        <button onclick="addAlchemyIngredient('Pure Grace', 25)" class="p-3 rounded-xl bg-neutral-900/80 border border-gold-500/20 hover:border-gold-400 text-left transition group">
+                            <i class="fa-solid fa-gem text-rose-400 group-hover:scale-110 transition-transform"></i>
+                            <div class="text-xs font-cinzel text-gold-200 mt-1">Pure Grace</div>
+                            <div class="text-[10px] text-neutral-400">+25% Radiance</div>
+                        </button>
+                        <button onclick="addAlchemyIngredient('Hypnotic Eyes', 25)" class="p-3 rounded-xl bg-neutral-900/80 border border-rose-500/20 hover:border-rose-400 text-left transition group">
+                            <i class="fa-solid fa-eye text-gold-400 group-hover:scale-110 transition-transform"></i>
+                            <div class="text-xs font-cinzel text-rose-200 mt-1">Hypnotic Eyes</div>
+                            <div class="text-[10px] text-neutral-400">+25% Melting Aura</div>
+                        </button>
+                        <button onclick="addAlchemyIngredient('Golden Laugh', 25)" class="p-3 rounded-xl bg-neutral-900/80 border border-gold-500/20 hover:border-gold-400 text-left transition group">
+                            <i class="fa-solid fa-music text-yellow-400 group-hover:scale-110 transition-transform"></i>
+                            <div class="text-xs font-cinzel text-gold-200 mt-1">Golden Laugh</div>
+                            <div class="text-[10px] text-neutral-400">+25% Euphoria</div>
+                        </button>
+                        <button onclick="addAlchemyIngredient('Infinite Royalty', 25)" class="p-3 rounded-xl bg-neutral-900/80 border border-rose-500/20 hover:border-rose-400 text-left transition group">
+                            <i class="fa-solid fa-crown text-purple-400 group-hover:scale-110 transition-transform"></i>
+                            <div class="text-xs font-cinzel text-purple-200 mt-1">Infinite Royalty</div>
+                            <div class="text-[10px] text-neutral-400">+25% Perfection</div>
+                        </button>
+                    </div>
+
+                    <!-- Elixir Progress -->
+                    <div class="p-4 rounded-2xl bg-neutral-950/80 border border-gold-500/30">
+                        <div class="flex justify-between text-xs font-mono text-gold-300 mb-2">
+                            <span>ELIXIR PURITY</span>
+                            <span id="alchemy-percent">0%</span>
+                        </div>
+                        <div class="w-full h-3 bg-neutral-900 rounded-full overflow-hidden">
+                            <div id="alchemy-bar" class="w-0 h-full bg-gradient-to-r from-rose-500 via-purple-500 to-gold-400 transition-all duration-500"></div>
+                        </div>
+                        <p id="alchemy-status" class="text-xs font-serif italic text-rose-200 mt-2 text-center">Select ingredients to brew the formula...</p>
+                    </div>
+                </div>
+
+                <!-- Right: 24K Gold Vinyl Turntable synced with 1.mp3 -->
+                <div class="lg:col-span-6 card-couture p-6 md:p-8 rounded-3xl flex flex-col items-center text-center">
+                    <span class="text-xs font-cinzel tracking-widest text-rose-400 uppercase mb-2">Exclusive Imperial Gramophone</span>
+                    <h3 class="font-cinzel text-2xl font-bold gold-shimmer mb-6">HER DEDICATED SYMPHONY</h3>
+
+                    <!-- Realistic Spinning Gold Vinyl -->
+                    <div class="relative w-56 h-56 md:w-64 md:h-64 flex items-center justify-center mb-6">
+                        <!-- Grooves -->
+                        <div id="vinyl-disc" class="w-full h-full rounded-full bg-neutral-950 border-4 border-gold-600 shadow-[0_0_50px_rgba(245,190,37,0.3)] flex items-center justify-center relative overflow-hidden transition-all duration-700">
+                            <!-- Vinyl sheen lines -->
+                            <div class="absolute inset-2 rounded-full border border-neutral-800"></div>
+                            <div class="absolute inset-6 rounded-full border border-neutral-800"></div>
+                            <div class="absolute inset-10 rounded-full border border-neutral-800"></div>
+                            <div class="absolute inset-14 rounded-full border border-neutral-800"></div>
+                            <!-- Center Label (Photo 2.jpg) -->
+                            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gold-400 z-10 shadow-inner">
+                                <img src="2.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect fill=\'%23e11d48\' width=\'100\' height=\'100\'/><text fill=\'%23ffffff\' font-size=\'10\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'>Vinyl</text></svg>';" class="w-full h-full object-cover" alt="Vinyl Label">
+                            </div>
+                        </div>
+
+                        <!-- Needle Arm -->
+                        <div id="tonearm" class="absolute -top-4 -right-2 w-24 h-24 pointer-events-none transition-transform duration-700 origin-top-right rotate-0">
+                            <div class="w-1.5 h-20 bg-gradient-to-b from-gold-300 to-gold-600 rounded-full shadow-lg ml-auto mr-4"></div>
+                            <div class="w-3 h-5 bg-rose-500 rounded-sm ml-auto mr-3.5 -mt-1 shadow"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <button onclick="toggleRoyalAudio()" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-rose-600 text-neutral-950 font-cinzel text-xs font-bold tracking-widest shadow hover:scale-105 active:scale-95 transition">
+                            <i id="vinyl-btn-icon" class="fa-solid fa-play mr-1"></i> PLAY 1.MP3
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             SECTION 3: 24K FOIL SCRATCH & ORACLE
+        ========================================== -->
+        <section id="scratch-section" class="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                
+                <!-- 24K Gold Scratch Off Card -->
+                <div class="card-couture p-6 rounded-3xl text-center">
+                    <span class="text-xs font-cinzel tracking-widest text-gold-400 uppercase">Interactive Foil</span>
+                    <h3 class="font-cinzel text-2xl font-bold gold-shimmer mt-1 mb-2">ROYAL SCRATCH REVEAL</h3>
+                    <p class="font-serif italic text-sm text-neutral-300 mb-4">Scratch the gold foil below with your finger or mouse to reveal a hidden secret.</p>
+                    
+                    <div class="relative w-full max-w-[320px] aspect-[4/5] mx-auto rounded-2xl overflow-hidden border-2 border-gold-500/40 shadow-2xl">
+                        <!-- Secret underneath (3.jpg) -->
+                        <div class="absolute inset-0 bg-neutral-900 flex flex-col items-center justify-center p-4 text-center">
+                            <img src="3.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'400\'><rect fill=\'%231a0b1c\' width=\'300\' height=\'400\'/><text fill=\'%23f5be25\' font-size=\'16\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'>My Secret Princess</text></svg>';" class="w-full h-full object-cover rounded-xl" alt="Secret Princess">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                                <p class="text-xs font-serif italic text-gold-200">"You are my whole universe in one human form."</p>
+                            </div>
+                        </div>
+                        <!-- Canvas gold scratch -->
+                        <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full cursor-pointer z-10"></canvas>
+                    </div>
+
+                    <button onclick="resetScratchCard()" class="mt-4 text-xs font-cinzel tracking-widest text-gold-400 hover:text-gold-200 transition">
+                        <i class="fa-solid fa-arrows-rotate mr-1"></i> RE-APPLY GOLD FOIL
+                    </button>
+                </div>
+
+                <!-- Mirror of Truth Oracle -->
+                <div class="card-couture p-6 md:p-8 rounded-3xl text-center">
+                    <span class="text-xs font-cinzel tracking-widest text-rose-400 uppercase">The Oracle of Beauty</span>
+                    <h3 class="font-cinzel text-2xl font-bold rose-shimmer mt-1 mb-4">THE MIRROR'S VERDICT</h3>
+                    <p class="font-serif italic text-sm text-neutral-300 mb-6">Ask the mirror who reigns supreme across every galaxy.</p>
+
+                    <div class="w-48 h-48 mx-auto rounded-full couture-glass border-2 border-rose-500/50 p-2 shadow-2xl flex items-center justify-center relative mb-6">
+                        <div class="w-full h-full rounded-full bg-neutral-950/80 flex flex-col items-center justify-center p-4">
+                            <i class="fa-solid fa-crown text-3xl text-gold-400 mb-2 animate-bounce"></i>
+                            <div id="oracle-text" class="text-xs font-serif italic text-rose-100 transition-opacity duration-300">
+                                "Without question, the most breathtaking goddess to ever exist."
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="generateOracleTruth()" class="px-8 py-3 rounded-full bg-gradient-to-r from-rose-600 via-gold-500 to-rose-600 text-neutral-950 font-cinzel text-xs font-bold tracking-widest shadow hover:scale-105 active:scale-95 transition">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-1.5"></i> CONSULT THE ORACLE AGAIN
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             SECTION 4: 5 IMPERIAL LOVE SCROLLS
+        ========================================== -->
+        <section id="love-letters" class="py-20 px-4 md:px-8 max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs font-cinzel tracking-widest text-gold-400 uppercase">Royal Chronicles</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-shimmer mt-2">LETTERS TO MY QUEEN</h2>
+                <p class="font-serif italic text-sm md:text-base text-neutral-300 mt-2">
+                    5 eternal scrolls sworn upon honor and written by the stars.
+                </p>
+            </div>
+
+            <!-- Letter Selector Tabs -->
+            <div class="flex justify-center space-x-2 md:space-x-4 mb-6">
+                <button onclick="selectLoveScroll(0)" class="scroll-tab active px-4 py-2 rounded-full couture-glass border border-gold-500/40 text-xs font-cinzel text-gold-300 hover:border-gold-300 transition">Scroll I</button>
+                <button onclick="selectLoveScroll(1)" class="scroll-tab px-4 py-2 rounded-full couture-glass border border-gold-500/20 text-xs font-cinzel text-neutral-400 hover:border-gold-300 transition">Scroll II</button>
+                <button onclick="selectLoveScroll(2)" class="scroll-tab px-4 py-2 rounded-full couture-glass border border-gold-500/20 text-xs font-cinzel text-neutral-400 hover:border-gold-300 transition">Scroll III</button>
+                <button onclick="selectLoveScroll(3)" class="scroll-tab px-4 py-2 rounded-full couture-glass border border-gold-500/20 text-xs font-cinzel text-neutral-400 hover:border-gold-300 transition">Scroll IV</button>
+                <button onclick="selectLoveScroll(4)" class="scroll-tab px-4 py-2 rounded-full border border-gold-500/20 text-xs font-cinzel text-neutral-400 hover:border-gold-300 transition">Scroll V</button>
+            </div>
+
+            <!-- Parchment Box -->
+            <div class="relative card-couture p-8 md:p-12 rounded-3xl border-2 border-gold-500/40 shadow-2xl">
+                <div class="flex items-center justify-between border-b border-gold-500/20 pb-4 mb-6">
+                    <span id="scroll-title" class="font-cinzel text-sm md:text-base text-gold-300 font-bold">DECREE I — THE GRAVITY OF YOUR EYES</span>
+                    <i class="fa-solid fa-feather-pointed text-gold-400 text-lg"></i>
+                </div>
+
+                <!-- Typewriter Letter Body -->
+                <div class="min-h-[160px]">
+                    <p id="scroll-body" class="font-serif italic text-lg md:text-2xl text-rose-100/90 leading-relaxed"></p>
+                </div>
+
+                <div class="mt-8 pt-4 border-t border-gold-500/20 flex justify-between items-center text-xs font-cinzel text-gold-400/80">
+                    <span>SEALED WITH ETERNAL DEVOTION</span>
+                    <button onclick="nextLoveScroll()" class="hover:text-gold-200 transition">Next Scroll <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             SECTION 5: 360° 3D ROYAL ORBIT CAROUSEL
+        ========================================== -->
+        <section id="carousel-section" class="py-20 px-4 overflow-hidden relative">
+            <div class="text-center mb-16">
+                <span class="text-xs font-cinzel tracking-widest text-rose-400 uppercase">Celestial Ring</span>
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-shimmer mt-2">THE 360° ROYAL ORBIT</h2>
+                <p class="font-serif italic text-sm md:text-base text-neutral-300 mt-2">
+                    Drag or swipe horizontally to revolve her majesty through 3D space.
+                </p>
+            </div>
+
+            <!-- 3D Carousel Stage -->
+            <div class="carousel-wrapper w-full h-[400px] md:h-[480px] flex items-center justify-center">
+                <div id="carousel-ring" class="carousel-3d relative w-56 h-72 md:w-64 md:h-80 cursor-grab active:cursor-grabbing">
+                    <!-- Cards will be populated by JS for smooth 3D transforms -->
+                </div>
+            </div>
+
+            <!-- Orbit Speed & Spin Controls -->
+            <div class="flex justify-center items-center space-x-4 mt-8">
+                <button onclick="rotateCarouselStep(-1)" class="w-10 h-10 rounded-full couture-glass border border-gold-500/30 text-gold-300 hover:scale-110 active:scale-95 transition">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="toggleCarouselAutoRotate()" id="carousel-play-btn" class="px-5 py-2 rounded-full couture-glass border border-gold-500/40 text-xs font-cinzel text-gold-200">
+                    <i class="fa-solid fa-pause mr-1"></i> PAUSE ROTATION
+                </button>
+                <button onclick="rotateCarouselStep(1)" class="w-10 h-10 rounded-full couture-glass border border-gold-500/30 text-gold-300 hover:scale-110 active:scale-95 transition">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             SECTION 6: 30-PORTRAIT COUTURE VAULT & LIGHTBOX
+        ========================================== -->
+        <section id="royal-vault" class="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full couture-glass border border-gold-400/30 mb-3">
+                    <i class="fa-solid fa-gem text-rose-400 text-xs"></i>
+                    <span class="font-cinzel text-[11px] text-gold-200 uppercase tracking-widest">Master Collection</span>
+                </div>
+                <h2 class="font-cinzel text-3xl md:text-6xl font-black gold-shimmer">THE 30 MASTERPIECES</h2>
+                <p class="font-serif italic text-base md:text-xl text-neutral-300 max-w-2xl mx-auto mt-2">
+                    Every portrait is a holy relic. 30 glimpses of pure divinity, each carrying its own romantic telemetry.
+                </p>
+
+                <!-- Filter Controls & Polaroid Mode -->
+                <div class="flex flex-wrap justify-center items-center gap-2 md:gap-4 mt-8">
+                    <button onclick="filterVault('all')" class="vault-filter-btn active px-4 py-1.5 rounded-full couture-glass border border-gold-500/40 text-xs font-cinzel text-gold-300">All 30 Relics</button>
+                    <button onclick="filterVault('eyes')" class="vault-filter-btn px-4 py-1.5 rounded-full couture-glass border border-gold-500/20 text-xs font-cinzel text-neutral-400">Mesmerizing Eyes</button>
+                    <button onclick="filterVault('royal')" class="vault-filter-btn px-4 py-1.5 rounded-full couture-glass border border-gold-500/20 text-xs font-cinzel text-neutral-400">Pure Royalty</button>
+                    <button onclick="togglePolaroidMode()" id="polaroid-toggle-btn" class="px-4 py-1.5 rounded-full bg-rose-500/20 border border-rose-500/40 text-xs font-cinzel text-rose-300 hover:bg-rose-500/30 transition">
+                        <i class="fa-solid fa-camera-retro mr-1"></i> Polaroid Mode
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bento Asymmetrical Gallery (Loads 1.jpg to 30.jpg) -->
+            <div id="vault-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-5">
+                <!-- Javascript will render 30 optimized cards here -->
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             SECTION 7: GRAND CORONATION CLIMAX
+        ========================================== -->
+        <section id="coronation-sec" class="py-24 px-4 text-center max-w-3xl mx-auto">
+            <div class="card-couture p-8 md:p-14 rounded-3xl border-2 border-gold-500/50 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-12 -right-12 w-40 h-40 bg-rose-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl"></div>
+
+                <i class="fa-solid fa-crown text-4xl md:text-5xl text-gold-400 mb-4 animate-bounce"></i>
+                <h2 class="font-cinzel text-2xl md:text-4xl font-black gold-shimmer mb-4">THE IMPERIAL CORONATION</h2>
+                <p class="font-serif italic text-base md:text-xl text-rose-100/90 mb-8 leading-relaxed">
+                    By the eternal laws of beauty, poetry, and devotion, I officially place the crown upon your head for the rest of eternity.
+                </p>
+
+                <!-- Coronation Button (Direct Trigger to Certificate & Sanctuary) -->
+                <button id="coronation-btn" onclick="executeGrandCoronation()" class="w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-yellow-400 via-rose-500 to-purple-600 text-neutral-950 font-cinzel text-sm font-black tracking-widest shadow-[0_0_40px_rgba(244,63,94,0.6)] hover:scale-105 active:scale-95 transition transform">
+                    👑 OFFICIALLY CROWN MY PRINCESS 👑
+                </button>
+            </div>
+
+            <!-- Revealed Imperial Certificate of Beauty -->
+            <div id="royal-certificate" class="hidden mt-12 card-couture p-8 md:p-12 rounded-3xl border-4 border-gold-400/70 shadow-[0_0_80px_rgba(245,190,37,0.3)] transition-all duration-1000">
+                <div class="border-2 border-gold-500/30 p-6 rounded-2xl relative">
+                    <span class="text-xs font-mono text-gold-400 tracking-widest uppercase">SOVEREIGN DECREE NO. 001</span>
+                    <h3 class="font-cinzel text-xl md:text-3xl font-black gold-shimmer my-3">CERTIFICATE OF ABSOLUTE BEAUTY</h3>
+                    <p class="font-serif italic text-base md:text-lg text-neutral-200 mb-6">
+                        This document certifies that the bearer possesses the most mesmerizing eyes and unmatched grace in existence.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-between pt-4 border-t border-gold-500/30 text-xs font-cinzel text-gold-300">
+                        <span>SIGNED: Your Forever Captive</span>
+                        <span class="mt-2 sm:mt-0 font-script text-2xl text-rose-400">Eternally Yours</span>
+                    </div>
+
+                    <!-- BREATHTAKING PORTAL BUTTON TO THE NEW WISH SANCTUARY -->
+                    <div class="mt-8 pt-6 border-t border-gold-500/30">
+                        <p class="font-serif italic text-gold-200 text-sm mb-4">"A queen's desires command the universe. Type your wishes and watch them illuminate the cosmos."</p>
+                        <button onclick="openWishSanctuary()" class="px-8 py-4 rounded-full bg-gradient-to-r from-gold-400 via-rose-500 to-amber-300 text-neutral-950 font-cinzel font-black text-xs md:text-sm tracking-widest shadow-2xl portal-glow hover:scale-105 active:scale-95 transition">
+                            🏮 ASCEND TO THE INFINITE WISH SANCTUARY 🌌
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-12 border-t border-gold-500/20 text-center text-xs font-cinzel text-gold-400/60">
+            <p>DESIGNED SPECIFICALLY FOR THE ONE & ONLY PRINCESS</p>
+            <p class="font-serif italic text-neutral-500 mt-1">Every heartbeat is tuned to your rhythm.</p>
+        </footer>
+    </main>
+
+
+    <!-- ===================================================================
+         NEW FEATURE: CELESTIAL INFINITE WISH SANCTUARY & COSMIC CLIMAX
+         (Interactive Canvas Page with Floating Lanterns & Crazy Cosmic Finale)
+    =================================================================== -->
+    <div id="infinite-sanctuary" class="fixed inset-0 z-[99995] bg-[#030106] hidden flex flex-col justify-between overflow-hidden transition-opacity duration-700">
+        
+        <!-- Live Wish Canvas (Deep Starfield + 3D Realistic Rising Text Lanterns + Fireflies) -->
+        <canvas id="sanctuary-canvas" class="absolute inset-0 w-full h-full cursor-crosshair z-0"></canvas>
+
+        <!-- Sanctuary Top Navigation HUD -->
+        <div class="relative z-20 px-4 md:px-8 pt-4 flex justify-between items-center pointer-events-auto">
+            <div class="flex items-center space-x-3 couture-glass px-4 py-2 rounded-full border border-gold-400/30">
+                <i class="fa-solid fa-moon text-gold-400 animate-pulse"></i>
+                <div>
+                    <h2 class="font-cinzel text-xs md:text-sm font-bold text-gold-200">CELESTIAL WISH SANCTUARY</h2>
+                    <span id="wish-counter-badge" class="text-[10px] font-mono text-rose-300">WISHES IN THE STARS: 0</span>
+                </div>
+            </div>
+
+            <!-- Actions: Close & Climax Trigger -->
+            <div class="flex items-center space-x-2">
+                <button onclick="triggerCosmicConstellationNova()" class="px-3.5 py-2 rounded-full bg-gradient-to-r from-rose-600 to-purple-600 text-gold-100 text-xs font-cinzel font-bold tracking-wider hover:scale-105 active:scale-95 transition shadow-lg border border-gold-400/40">
+                    <i class="fa-solid fa-meteor mr-1 text-yellow-300"></i> <span class="hidden sm:inline">COSMIC</span> FINALE
+                </button>
+                <button onclick="closeWishSanctuary()" class="w-9 h-9 rounded-full couture-glass border border-gold-500/30 text-gold-300 hover:text-white flex items-center justify-center transition" title="Return to Sanctuary">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Hint Notice -->
+        <div id="sanctuary-hint" class="relative z-10 text-center px-4 pointer-events-none transition-opacity duration-700">
+            <p class="font-serif italic text-base md:text-xl text-rose-200/90 drop-shadow">
+                "Type anything your heart yearns for, my queen. Each wish ascends as an eternal glowing lantern."
+            </p>
+            <p class="text-[11px] font-mono text-gold-400/80 mt-1">Tap/Touch any lantern in the sky to play crystal chimes & make it shine ✨</p>
+        </div>
+
+        <!-- Sanctuary Bottom Controls Bar (Input + Quick Presets + Swarm Launcher) -->
+        <div class="relative z-20 p-4 md:p-6 max-w-3xl mx-auto w-full pointer-events-auto">
+            <div class="card-couture p-4 md:p-5 rounded-3xl border border-gold-400/40 shadow-2xl backdrop-blur-xl">
+                
+                <!-- Quick Preset Wish Chips -->
+                <div class="flex items-center space-x-2 overflow-x-auto pb-2 mb-3 scrollbar-none text-xs">
+                    <span class="text-[10px] font-cinzel text-gold-400 uppercase tracking-wider shrink-0"><i class="fa-solid fa-sparkles mr-1"></i>Quick Desires:</span>
+                    <button onclick="fillPresetWish('Forever hold my hand across every lifetime 💍')" class="shrink-0 px-2.5 py-1 rounded-full bg-neutral-900 border border-gold-500/20 text-neutral-300 hover:text-gold-200 hover:border-gold-400 transition text-[11px]">Forever With You 💍</button>
+                    <button onclick="fillPresetWish('May your radiant eyes always shine with happiness ✨')" class="shrink-0 px-2.5 py-1 rounded-full bg-neutral-900 border border-gold-500/20 text-neutral-300 hover:text-gold-200 hover:border-gold-400 transition text-[11px]">Eternal Happiness ✨</button>
+                    <button onclick="fillPresetWish('Take me on infinite adventures under the stars 🌌')" class="shrink-0 px-2.5 py-1 rounded-full bg-neutral-900 border border-gold-500/20 text-neutral-300 hover:text-gold-200 hover:border-gold-400 transition text-[11px]">Starry Adventures 🌌</button>
+                    <button onclick="fillPresetWish('Always remember you are the most precious girl on Earth 👑')" class="shrink-0 px-2.5 py-1 rounded-full bg-neutral-900 border border-gold-500/20 text-neutral-300 hover:text-gold-200 hover:border-gold-400 transition text-[11px]">My Queen 👑</button>
+                </div>
+
+                <!-- Main Wish Input Field -->
+                <form id="wish-form" onsubmit="handleWishSubmit(event)" class="flex flex-col sm:flex-row gap-2">
+                    <div class="relative flex-grow">
+                        <input id="wish-input" type="text" maxlength="90" placeholder="Type your deepest wish, my sovereign queen..." 
+                               class="w-full px-5 py-3.5 rounded-2xl bg-neutral-950/90 border border-gold-500/40 text-gold-100 placeholder-neutral-500 focus:outline-none focus:border-rose-400 text-sm md:text-base font-serif italic shadow-inner">
+                        <span id="char-counter" class="absolute right-3.5 top-4 text-[10px] font-mono text-neutral-500">90</span>
+                    </div>
+
+                    <!-- Release Button -->
+                    <button type="submit" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-gold-500 via-rose-500 to-gold-400 text-neutral-950 font-cinzel font-black text-xs md:text-sm tracking-wider shadow-lg hover:scale-105 active:scale-95 transition flex items-center justify-center space-x-2">
+                        <span>RELEASE LANTERN</span>
+                        <i class="fa-solid fa-paper-plane text-xs"></i>
+                    </button>
+                </form>
+
+                <!-- Footer Quick Modifiers -->
+                <div class="flex justify-between items-center mt-3 pt-2 border-t border-gold-500/10 text-xs">
+                    <!-- Lantern Style Chooser -->
+                    <div class="flex items-center space-x-2">
+                        <span class="text-[10px] font-cinzel text-neutral-400 uppercase">Silk:</span>
+                        <button onclick="setLanternStyle('gold')" class="w-4 h-4 rounded-full bg-yellow-400 border border-white/50 focus:scale-125 transition" title="24K Gold Silk"></button>
+                        <button onclick="setLanternStyle('rose')" class="w-4 h-4 rounded-full bg-rose-500 border border-white/50 focus:scale-125 transition" title="Rose Quartz"></button>
+                        <button onclick="setLanternStyle('amethyst')" class="w-4 h-4 rounded-full bg-purple-500 border border-white/50 focus:scale-125 transition" title="Twilight Amethyst"></button>
+                        <button onclick="setLanternStyle('celestial')" class="w-4 h-4 rounded-full bg-cyan-400 border border-white/50 focus:scale-125 transition" title="Celestial Ice"></button>
+                    </div>
+
+                    <!-- 100 Lantern Swarm Button -->
+                    <button onclick="launchLanternSwarm(20)" class="text-[11px] font-cinzel text-gold-300 hover:text-gold-100 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-fire-flame-curved text-rose-400"></i>
+                        <span>Launch 20 Royal Lanterns Swarm</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================
+         FULLSCREEN LIGHTBOX MODAL (FOR ALL 30 PHOTOS)
+    ========================================== -->
+    <div id="lightbox" class="fixed inset-0 z-[99999] bg-black/95 backdrop-blur-2xl hidden flex flex-col justify-between p-4 md:p-8 transition-opacity duration-300">
+        <!-- Top Lightbox Bar -->
+        <div class="flex justify-between items-center w-full z-10">
+            <span id="lb-counter" class="text-xs font-mono text-gold-400">1 / 30</span>
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleSlideshow()" id="slideshow-btn" class="px-3 py-1 rounded-full couture-glass text-xs font-cinzel text-gold-300 border border-gold-500/30">
+                    <i class="fa-solid fa-play mr-1"></i> Auto Play
+                </button>
+                <button onclick="closeLightbox()" class="w-8 h-8 rounded-full couture-glass text-gold-300 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Center Image Stage -->
+        <div class="relative flex-grow flex items-center justify-center my-4 overflow-hidden">
+            <button onclick="changeLightboxPhoto(-1)" class="absolute left-2 md:left-6 z-20 w-12 h-12 rounded-full couture-glass text-gold-300 hover:scale-110 active:scale-90 transition">
+                <i class="fa-solid fa-chevron-left text-lg"></i>
+            </button>
+
+            <div class="relative max-h-full max-w-full flex flex-col items-center">
+                <img id="lb-image" src="" class="max-h-[70vh] md:max-h-[78vh] max-w-[90vw] object-contain rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.9)] border border-gold-500/30 transition-transform duration-500" alt="Princess Masterpiece">
+                <p id="lb-caption" class="font-serif italic text-base md:text-xl text-rose-200 mt-4 text-center max-w-lg drop-shadow"></p>
+            </div>
+
+            <button onclick="changeLightboxPhoto(1)" class="absolute right-2 md:right-6 z-20 w-12 h-12 rounded-full couture-glass text-gold-300 hover:scale-110 active:scale-90 transition">
+                <i class="fa-solid fa-chevron-right text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Bottom Lightbox Note -->
+        <div class="text-center text-[10px] font-mono text-neutral-500">
+            HER SACRED ARCHIVE — SWIPE OR USE ARROW KEYS
+        </div>
+    </div>
+
+
+    <!-- ===================================================================
+         CORE JAVASCRIPT MASTER LOGIC & ANIMATION ENGINES
+    =================================================================== -->
+    <script>
+        /* ==========================================
+           1. GLOBAL CONFIG & 30 RELIC DESCRIPTIONS
+        ========================================== */
+        const TOTAL_PHOTOS = 30;
+        let isAudioPlaying = false;
+        let activePhotoIndex = 0;
+        let slideshowTimer = null;
+        let isPolaroidActive = false;
+        let sanctuaryActive = false;
+        let currentLanternStyle = 'gold';
+        let wishCount = 0;
+
+        // Custom poetic telemetry for each of the 30 local photos (1.jpg to 30.jpg)
+        const photoCaptions = [
+            "The gaze that commanded the stars to stand still.",
+            "A smile capable of healing every broken corner of my world.",
+            "Elegance sculpted by angels, destined only for royalty.",
+            "In your eyes lies a constellation I would gladly lose myself in forever.",
+            "Grace so effortless it turns the chaotic universe into poetry.",
+            "A queen does not demand devotion; she inspires it simply by breathing.",
+            "My favorite place in the entire multiverse is wherever you are looking.",
+            "Pure starlight wrapped in human perfection.",
+            "The standard against which all worldly beauty is measured and found lacking.",
+            "Your laughter is the only symphony my heart will ever answer to.",
+            "Every heartbeat of mine whispers your name across the void.",
+            "Sunsets look pale and fragile next to the warmth of your skin.",
+            "A breathtaking masterpiece that no royal museum on Earth could ever hold.",
+            "When you look at me, gravity completely ceases to exist.",
+            "The sovereign ruler of my every waking and dreaming thought.",
+            "Eyes so deep they hold the holy secrets of distant galaxies.",
+            "Unrivaled splendor that leaves poets speechless and kings humble.",
+            "Even the moon envies the gentle glow you bring into my life.",
+            "A single glance from you melts every shield I ever built.",
+            "Divine geometry and celestial warmth in its most immaculate form.",
+            "You are the answer to every prayer I never had words to speak.",
+            "An imperial presence that illuminates even the darkest midnight.",
+            "Your voice is my peace, your touch is my kingdom.",
+            "Eternity is not long enough to appreciate your sacred beauty.",
+            "The most radiant jewel across all seven continents and beyond.",
+            "A soul so pure and luminous it makes diamonds feel mundane.",
+            "Every second without your gaze is a century wasted in the dark.",
+            "My sovereign monarch, my heart's eternal and only sanctuary.",
+            "The crowning jewel of the universe, standing right in front of me.",
+            "Forever, without end or condition: you are my absolute Queen."
+        ];
+
+        const loveLetters = [
+            {
+                title: "DECREE I — THE GRAVITY OF YOUR EYES",
+                text: "Before I met you, I believed the universe was vast and infinite. But the moment I looked into your eyes, every star shrunk into irrelevance. You hold a gravity so tender yet unstoppable that every piece of my soul surrendered gladly without fighting back."
+            },
+            {
+                title: "DECREE II — THE MELTING POINT",
+                text: "People ask how someone can lose their train of thought with a single look. They haven't stood in front of you. When your eyes meet mine, my scientific logic evaporates, my heartbeat skyrockets to 180 BPM, and I completely melt into absolute adoration."
+            },
+            {
+                title: "DECREE III — ROYALTY DEFINED",
+                text: "You do not need a golden throne or an imperial tiara to prove your crown. The grace with which you carry yourself, the kindness in your words, and the radiance of your laughter declare you the undisputed Queen of my world every single second."
+            },
+            {
+                title: "DECREE IV — MY ETERNAL PROMISE",
+                text: "Through every storm, through every peaceful dusk, and across every lifetime we may share, I promise to protect your smile, to worship your dreams, and to gaze upon you with the exact same breathless wonder I feel tonight."
+            },
+            {
+                title: "DECREE V — TO THE MOST BEAUTIFUL GIRL ON EARTH",
+                text: "If I were given all the treasures in the depths of the oceans and all the constellations in the sky, I would trade them in an instant just to look into your eyes for one more second. You are, and forever will be, my absolute masterpiece."
+            }
+        ];
+
+        /* ==========================================
+           2. 60 FPS ULTRA-LIGHT WEBGL LIQUID SATIN SHADER
+        ========================================== */
+        const liquidCanvas = document.getElementById('liquid-canvas');
+        const gl = liquidCanvas.getContext('webgl', { powerPreference: 'high-performance', alpha: false });
+        let shaderProgram, timeUniform, resUniform, mouseUniform, paletteUniform;
+        let liquidPalette = 0; // 0: Rose-Gold, 1: Deep Amethyst, 2: Celestial Cyan, 3: Royal Emerald
+        let mouseX = 0.5, mouseY = 0.5;
+
+        const vsSource = `
+            attribute vec2 position;
+            void main() {
+                gl_Position = vec4(position, 0.0, 1.0);
+            }
+        `;
+
+        const fsSource = `
+            precision lowp float;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+            uniform vec2 u_mouse;
+            uniform int u_palette;
+
+            void main() {
+                vec2 st = gl_FragCoord.xy / u_resolution.xy;
+                vec2 p = (st - 0.5) * 2.0;
+                p.x *= u_resolution.x / u_resolution.y;
+
+                float t = u_time * 0.22;
+                float d = length(p - (u_mouse - 0.5) * 0.8);
+                
+                float wave1 = sin(p.x * 2.4 + t + sin(p.y * 3.0 + t * 0.5)) * 0.5;
+                float wave2 = cos(p.y * 2.1 - t * 0.8 + cos(p.x * 2.8 - t)) * 0.5;
+                float combined = wave1 + wave2 - (d * 0.35);
+
+                vec3 col1, col2, col3;
+                if (u_palette == 0) {
+                    // Rose-Gold Velvet
+                    col1 = vec3(0.06, 0.03, 0.08); // Dark velvet
+                    col2 = vec3(0.65, 0.12, 0.26); // Couture Rose
+                    col3 = vec3(0.96, 0.75, 0.25); // 24K Gold
+                } else if (u_palette == 1) {
+                    // Deep Amethyst
+                    col1 = vec3(0.04, 0.02, 0.08);
+                    col2 = vec3(0.45, 0.08, 0.65);
+                    col3 = vec3(0.92, 0.45, 0.85);
+                } else if (u_palette == 2) {
+                    // Celestial Cyan & Silver
+                    col1 = vec3(0.02, 0.05, 0.09);
+                    col2 = vec3(0.08, 0.42, 0.62);
+                    col3 = vec3(0.55, 0.88, 0.98);
+                } else {
+                    // Royal Emerald & Gold
+                    col1 = vec3(0.02, 0.06, 0.04);
+                    col2 = vec3(0.08, 0.45, 0.25);
+                    col3 = vec3(0.95, 0.78, 0.25);
+                }
+
+                vec3 color = mix(col1, col2, smoothstep(-0.6, 0.4, combined));
+                color = mix(color, col3, smoothstep(0.2, 1.2, combined + sin(t + p.x)));
+
+                gl_FragColor = vec4(color, 1.0);
+            }
+        `;
+
+        function initLiquidWebGL() {
+            if (!gl) return;
+            const compileShader = (src, type) => {
+                const s = gl.createShader(type);
+                gl.shaderSource(s, src);
+                gl.compileShader(s);
+                return s;
+            };
+
+            const vs = compileShader(vsSource, gl.VERTEX_SHADER);
+            const fs = compileShader(fsSource, gl.FRAGMENT_SHADER);
+            shaderProgram = gl.createProgram();
+            gl.attachShader(shaderProgram, vs);
+            gl.attachShader(shaderProgram, fs);
+            gl.linkProgram(shaderProgram);
+            gl.useProgram(shaderProgram);
+
+            const buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+                -1, -1,  1, -1, -1,  1,
+                -1,  1,  1, -1,  1,  1
+            ]), gl.STATIC_DRAW);
+
+            const posAttr = gl.getAttribLocation(shaderProgram, 'position');
+            gl.enableVertexAttribArray(posAttr);
+            gl.vertexAttribPointer(posAttr, 2, gl.FLOAT, false, 0, 0);
+
+            timeUniform = gl.getUniformLocation(shaderProgram, 'u_time');
+            resUniform = gl.getUniformLocation(shaderProgram, 'u_resolution');
+            mouseUniform = gl.getUniformLocation(shaderProgram, 'u_mouse');
+            paletteUniform = gl.getUniformLocation(shaderProgram, 'u_palette');
+
+            resizeLiquidCanvas();
+            window.addEventListener('resize', resizeLiquidCanvas, { passive: true });
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX / window.innerWidth;
+                mouseY = 1.0 - (e.clientY / window.innerHeight);
+            }, { passive: true });
+
+            renderLiquid();
+        }
+
+        function resizeLiquidCanvas() {
+            if (!gl) return;
+            // Downsampled for 60fps locked performance
+            const scale = window.devicePixelRatio > 1.5 ? 0.5 : 0.75;
+            liquidCanvas.width = window.innerWidth * scale;
+            liquidCanvas.height = window.innerHeight * scale;
+            gl.viewport(0, 0, liquidCanvas.width, liquidCanvas.height);
+        }
+
+        let lastTime = 0;
+        function renderLiquid(time) {
+            if (sanctuaryActive) {
+                // Pause background liquid rendering when Wish Sanctuary is active to guarantee 100% GPU to lanterns!
+                requestAnimationFrame(renderLiquid);
+                return;
+            }
+            time *= 0.001;
+            if (gl && shaderProgram) {
+                gl.uniform1f(timeUniform, time);
+                gl.uniform2f(resUniform, liquidCanvas.width, liquidCanvas.height);
+                gl.uniform2f(mouseUniform, mouseX, mouseY);
+                gl.uniform1i(paletteUniform, liquidPalette);
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+            }
+            requestAnimationFrame(renderLiquid);
+        }
+
+        function cycleLiquidTheme() {
+            liquidPalette = (liquidPalette + 1) % 4;
+            const names = ["Couture Rose-Gold", "Twilight Amethyst", "Celestial Cyan", "Royal Emerald"];
+            showToast("Aura Switched: " + names[liquidPalette]);
+        }
+
+        /* ==========================================
+           3. WEB AUDIO HARMONIC CHIMER SYNTH
+        ========================================== */
+        let audioCtx = null;
+        function playCrystalBell(freq = 880) {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                // Crystalline exponential decay
+                gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.8);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 1.8);
+            } catch(e) {}
+        }
+
+        /* ==========================================
+           4. AUDIO PLAYER & EQUALIZER CONTROLS (1.mp3)
+        ========================================== */
+        const royalAudio = document.getElementById('royal-audio');
+        const audioIcon = document.getElementById('audio-icon');
+        const vinylDisc = document.getElementById('vinyl-disc');
+        const tonearm = document.getElementById('tonearm');
+        const vinylBtnIcon = document.getElementById('vinyl-btn-icon');
+
+        function toggleRoyalAudio() {
+            if (isAudioPlaying) {
+                royalAudio.pause();
+                isAudioPlaying = false;
+                audioIcon.className = "fa-solid fa-volume-xmark text-xs";
+                if (vinylDisc) vinylDisc.classList.remove('animate-[spin_4s_linear_infinite]');
+                if (tonearm) tonearm.classList.remove('rotate-12');
+                if (vinylBtnIcon) vinylBtnIcon.className = "fa-solid fa-play mr-1";
+            } else {
+                royalAudio.play().then(() => {
+                    isAudioPlaying = true;
+                    audioIcon.className = "fa-solid fa-volume-high text-xs";
+                    if (vinylDisc) vinylDisc.classList.add('animate-[spin_4s_linear_infinite]');
+                    if (tonearm) tonearm.classList.add('rotate-12');
+                    if (vinylBtnIcon) vinylBtnIcon.className = "fa-solid fa-pause mr-1";
+                }).catch(() => {
+                    showToast("Tap again to activate symphony");
+                });
+            }
+        }
+
+        /* ==========================================
+           5. 5-ACT CINEMATIC OVERTURE FLOW
+        ========================================== */
+        let astrolabeInterval = null;
+        let astrolabeProgress = 0;
+
+        function triggerAstrolabeTouch() {
+            if (astrolabeProgress >= 100) return;
+            const pBar = document.getElementById('astrolabe-progress');
+            const pText = document.getElementById('astrolabe-percent');
+            
+            // Try to auto-start music on first interaction
+            if (!isAudioPlaying) {
+                royalAudio.play().then(() => { isAudioPlaying = true; }).catch(()=>{});
+            }
+
+            astrolabeInterval = setInterval(() => {
+                astrolabeProgress += 4;
+                pBar.style.width = astrolabeProgress + '%';
+                pText.innerText = astrolabeProgress + '% MATCH';
+                
+                if (astrolabeProgress >= 100) {
+                    clearInterval(astrolabeInterval);
+                    playCrystalBell(1046.5); // High C
+                    pText.innerText = "SOVEREIGN QUEEN CONFIRMED ✨";
+                    setTimeout(advanceToAct2, 500);
+                }
+            }, 30);
+        }
+
+        function advanceToAct2() {
+            document.getElementById('act-1').classList.add('hidden');
+            const act2 = document.getElementById('act-2');
+            act2.classList.remove('hidden');
+            initMirrorFogScratch();
+        }
+
+        // Act 2 Canvas Scratch
+        function initMirrorFogScratch() {
+            const canvas = document.getElementById('mirror-fog-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            // Draw Gold Frosted Stardust
+            ctx.fillStyle = '#1c1024';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for(let i = 0; i < 400; i++) {
+                ctx.fillStyle = i % 2 === 0 ? 'rgba(245, 190, 37, 0.4)' : 'rgba(244, 63, 94, 0.3)';
+                ctx.beginPath();
+                ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 2.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.font = '16px "Cinzel Decorative"';
+            ctx.fillStyle = '#FFE080';
+            ctx.textAlign = 'center';
+            ctx.fillText("RUB TO REVEAL HER", canvas.width/2, canvas.height/2);
+
+            let isScratching = false;
+            let clearedPixels = 0;
+
+            const scratch = (x, y) => {
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath();
+                ctx.arc(x, y, 28, 0, Math.PI * 2);
+                ctx.fill();
+                clearedPixels++;
+                if (clearedPixels > 35) {
+                    advanceToAct3();
+                }
+            };
+
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                scratch(e.clientX - rect.left, e.clientY - rect.top);
+            });
+            canvas.addEventListener('touchmove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                scratch(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
+            }, { passive: true });
+        }
+
+        function advanceToAct3() {
+            document.getElementById('act-2').classList.add('hidden');
+            document.getElementById('act-3').classList.remove('hidden');
+            playCrystalBell(784); // G5
+        }
+
+        function turnGoldenKey() {
+            const lockIcon = document.getElementById('lock-icon');
+            const heartLock = document.getElementById('heart-lock');
+            lockIcon.className = "fa-solid fa-lock-open text-4xl text-rose-400 scale-125 transition-all duration-500";
+            heartLock.classList.add('shadow-[0_0_80px_rgba(244,63,94,0.8)]');
+            playCrystalBell(1174.66); // D6
+            
+            setTimeout(() => {
+                document.getElementById('act-3').classList.add('hidden');
+                document.getElementById('act-4').classList.remove('hidden');
+            }, 800);
+        }
+
+        function openRoyalEnvelope() {
+            const env = document.getElementById('royal-envelope');
+            env.style.transform = "scale(1.1) rotateX(20deg)";
+            playCrystalBell(1318.51); // E6
+            setTimeout(() => {
+                document.getElementById('act-4').classList.add('hidden');
+                runAct5Trailer();
+            }, 600);
+        }
+
+        function runAct5Trailer() {
+            const act5 = document.getElementById('act-5');
+            act5.classList.remove('hidden');
+            document.body.classList.add('cinema-active');
+            
+            const captions = [
+                "THE UNIVERSE SOUGHT PERFECTION...",
+                "AND CREATED YOUR EYES...",
+                "HAPPY PRINCESS DAY, MY QUEEN."
+            ];
+
+            const triptych = document.getElementById('trailer-triptych');
+            const captionEl = document.getElementById('trailer-caption');
+            const enterBtn = document.getElementById('trailer-enter-btn');
+
+            gsap.to(triptych, { opacity: 1, duration: 1.2 });
+
+            let step = 0;
+            const captionInterval = setInterval(() => {
+                captionEl.innerText = captions[step];
+                gsap.fromTo(captionEl, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8 });
+                playCrystalBell(523.25 + (step * 150));
+                step++;
+                if (step >= captions.length) {
+                    clearInterval(captionInterval);
+                    enterBtn.classList.remove('hidden');
+                    gsap.fromTo(enterBtn, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6 });
+                }
+            }, 1600);
+        }
+
+        function finishIntroCinematic() {
+            document.body.classList.remove('cinema-active');
+            gsap.to('#intro-overlay', {
+                opacity: 0,
+                duration: 1.2,
+                onComplete: () => {
+                    document.getElementById('intro-overlay').style.display = 'none';
+                    document.getElementById('main-world').style.opacity = '1';
+                    fireImperialConfetti();
+                }
+            });
+        }
+
+        function skipIntroCinematic() {
+            document.body.classList.remove('cinema-active');
+            if (!isAudioPlaying) {
+                royalAudio.play().then(() => { isAudioPlaying = true; }).catch(()=>{});
+            }
+            gsap.to('#intro-overlay', {
+                opacity: 0,
+                duration: 0.6,
+                onComplete: () => {
+                    document.getElementById('intro-overlay').style.display = 'none';
+                    document.getElementById('main-world').style.opacity = '1';
+                }
+            });
+        }
+
+        /* ==========================================
+           6. IRIS GALAXY & SOUL ECG OBSERVATORY
+        ========================================== */
+        const irisCanvas = document.getElementById('iris-canvas');
+        const irisCtx = irisCanvas ? irisCanvas.getContext('2d') : null;
+        let irisAngle = 0;
+
+        function renderIrisObservatory() {
+            if (!irisCanvas || !irisCtx) return;
+            const w = irisCanvas.width = irisCanvas.offsetWidth;
+            const h = irisCanvas.height = irisCanvas.offsetHeight;
+            const cx = w / 2;
+            const cy = h / 2;
+            const r = Math.min(w, h) * 0.42;
+
+            irisCtx.clearRect(0, 0, w, h);
+
+            // Outer Sclera Glow
+            const glow = irisCtx.createRadialGradient(cx, cy, r * 0.2, cx, cy, r);
+            glow.addColorStop(0, '#380c29');
+            glow.addColorStop(0.6, '#18071e');
+            glow.addColorStop(1, '#08030b');
+            irisCtx.fillStyle = glow;
+            irisCtx.beginPath();
+            irisCtx.arc(cx, cy, r, 0, Math.PI * 2);
+            irisCtx.fill();
+            irisCtx.strokeStyle = 'rgba(245, 190, 37, 0.4)';
+            irisCtx.lineWidth = 2;
+            irisCtx.stroke();
+
+            // Rotating Hypnotic Striae
+            irisAngle += 0.008;
+            for (let i = 0; i < 48; i++) {
+                const theta = (i / 48) * Math.PI * 2 + irisAngle;
+                const x1 = cx + Math.cos(theta) * (r * 0.25);
+                const y1 = cy + Math.sin(theta) * (r * 0.25);
+                const x2 = cx + Math.cos(theta + 0.15) * (r * 0.95);
+                const y2 = cy + Math.sin(theta + 0.15) * (r * 0.95);
+
+                irisCtx.strokeStyle = i % 2 === 0 ? 'rgba(244, 63, 94, 0.45)' : 'rgba(245, 190, 37, 0.45)';
+                irisCtx.lineWidth = 1.2;
+                irisCtx.beginPath();
+                irisCtx.moveTo(x1, y1);
+                irisCtx.lineTo(x2, y2);
+                irisCtx.stroke();
+            }
+
+            // Deep Black Pupil (Traps the Soul)
+            const pupil = irisCtx.createRadialGradient(cx, cy, 2, cx, cy, r * 0.25);
+            pupil.addColorStop(0, '#000000');
+            pupil.addColorStop(1, '#110313');
+            irisCtx.fillStyle = pupil;
+            irisCtx.beginPath();
+            irisCtx.arc(cx, cy, r * 0.26, 0, Math.PI * 2);
+            irisCtx.fill();
+
+            // Specular Reflection
+            irisCtx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            irisCtx.beginPath();
+            irisCtx.arc(cx - (r * 0.1), cy - (r * 0.1), r * 0.04, 0, Math.PI * 2);
+            irisCtx.fill();
+
+            requestAnimationFrame(renderIrisObservatory);
+        }
+
+        // Live ECG Cardiac Waveform
+        const ecgCanvas = document.getElementById('ecg-canvas');
+        const ecgCtx = ecgCanvas ? ecgCanvas.getContext('2d') : null;
+        let ecgX = 0;
+        let ecgPoints = [];
+
+        function renderLiveECG() {
+            if (!ecgCanvas || !ecgCtx) return;
+            const w = ecgCanvas.width = ecgCanvas.offsetWidth;
+            const h = ecgCanvas.height = ecgCanvas.offsetHeight;
+            const mid = h / 2;
+
+            ecgCtx.fillStyle = 'rgba(0, 0, 0, 0.18)';
+            ecgCtx.fillRect(0, 0, w, h);
+
+            ecgX = (ecgX + 2.5) % w;
+            
+            // ECG Spike math
+            let y = mid;
+            const cycle = ecgX % 120;
+            if (cycle > 40 && cycle < 46) y -= 12;
+            else if (cycle >= 46 && cycle < 54) y += 35;
+            else if (cycle >= 54 && cycle < 62) y -= 45;
+            else if (cycle >= 62 && cycle < 68) y += 10;
+
+            ecgPoints.push({ x: ecgX, y: y });
+            if (ecgPoints.length > w / 2.5) ecgPoints.shift();
+
+            ecgCtx.strokeStyle = '#F43F5E';
+            ecgCtx.lineWidth = 2;
+            ecgCtx.shadowColor = '#F43F5E';
+            ecgCtx.shadowBlur = 8;
+            ecgCtx.beginPath();
+            for (let i = 0; i < ecgPoints.length; i++) {
+                if (i === 0) ecgCtx.moveTo(ecgPoints[i].x, ecgPoints[i].y);
+                else ecgCtx.lineTo(ecgPoints[i].x, ecgPoints[i].y);
+            }
+            ecgCtx.stroke();
+            ecgCtx.shadowBlur = 0;
+
+            requestAnimationFrame(renderLiveECG);
+        }
+
+        function triggerSoulMeltdown() {
+            const meltBar = document.getElementById('melt-bar');
+            const bpmVal = document.getElementById('bpm-val');
+            const tempVal = document.getElementById('melt-temp');
+            
+            bpmVal.innerText = "198 BPM (CRITICAL)";
+            tempVal.innerText = "MELTED: 9,999°C";
+            meltBar.style.width = '100%';
+            playCrystalBell(987.77);
+
+            showToast("⚠️ MELTDOWN ALERT: Heart completely dissolved in her eyes!");
+            fireImperialConfetti();
+        }
+
+        /* ==========================================
+           7. ROYAL ALCHEMY LAB & ORACLE
+        ========================================== */
+        let alchemyTotal = 0;
+        function addAlchemyIngredient(name, value) {
+            if (alchemyTotal >= 100) return;
+            alchemyTotal = Math.min(100, alchemyTotal + value);
+            document.getElementById('alchemy-bar').style.width = alchemyTotal + '%';
+            document.getElementById('alchemy-percent').innerText = alchemyTotal + '%';
+            
+            playCrystalBell(440 + (alchemyTotal * 4));
+            const status = document.getElementById('alchemy-status');
+            if (alchemyTotal < 100) {
+                status.innerText = `Infused ${name}! Elixir distilling...`;
+            } else {
+                status.innerText = "👑 100% COMPLETE: The Elixir of Absolute Sovereign Perfection!";
+                fireImperialConfetti();
+            }
+        }
+
+        const oracleCompliments = [
+            "\"The stars met in council and decreed her eyes the brightest jewels in the cosmos.\"",
+            "\"No crown in history ever shone as brightly as her authentic smile.\"",
+            "\"Every universe in the multiverse contains nothing more precious.\"",
+            "\"Her majesty is infinite; human words are too small to describe her.\"",
+            "\"You are looking at the singular queen of his entire existence.\""
+        ];
+
+        function generateOracleTruth() {
+            const el = document.getElementById('oracle-text');
+            el.style.opacity = '0';
+            playCrystalBell(659.25);
+            setTimeout(() => {
+                const choice = oracleCompliments[Math.floor(Math.random() * oracleCompliments.length)];
+                el.innerText = choice;
+                el.style.opacity = '1';
+            }, 300);
+        }
+
+        // Gold Foil Scratch Card
+        function initGoldScratchCard() {
+            const canvas = document.getElementById('scratch-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            ctx.fillStyle = '#C59A27';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Add texture
+            for (let i = 0; i < 300; i++) {
+                ctx.fillStyle = 'rgba(255, 235, 150, 0.3)';
+                ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, 2, 2);
+            }
+            ctx.font = '14px "Cinzel Decorative"';
+            ctx.fillStyle = '#0a050d';
+            ctx.textAlign = 'center';
+            ctx.fillText("✨ 24K GOLD SCRATCH ✨", canvas.width/2, canvas.height/2);
+
+            const scratch = (x, y) => {
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath();
+                ctx.arc(x, y, 22, 0, Math.PI * 2);
+                ctx.fill();
+            };
+
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                scratch(e.clientX - rect.left, e.clientY - rect.top);
+            });
+            canvas.addEventListener('touchmove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                scratch(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
+            }, { passive: true });
+        }
+
+        function resetScratchCard() {
+            initGoldScratchCard();
+            showToast("Gold Foil Re-applied!");
+        }
+
+        /* ==========================================
+           8. IMPERIAL LOVE SCROLLS TYPEWRITER
+        ========================================== */
+        let activeScrollIndex = 0;
+        let typewriterTimer = null;
+
+        function selectLoveScroll(index) {
+            activeScrollIndex = index;
+            document.querySelectorAll('.scroll-tab').forEach((tab, i) => {
+                if (i === index) {
+                    tab.classList.add('border-gold-300', 'text-gold-300');
+                    tab.classList.remove('text-neutral-400');
+                } else {
+                    tab.classList.remove('border-gold-300', 'text-gold-300');
+                    tab.classList.add('text-neutral-400');
+                }
+            });
+
+            const scrollData = loveLetters[index];
+            document.getElementById('scroll-title').innerText = scrollData.title;
+            
+            const bodyEl = document.getElementById('scroll-body');
+            bodyEl.innerText = "";
+            clearTimeout(typewriterTimer);
+            playCrystalBell(587.33);
+
+            let charIdx = 0;
+            const fullText = scrollData.text;
+            function typeChar() {
+                if (charIdx < fullText.length) {
+                    bodyEl.innerText += fullText.charAt(charIdx);
+                    charIdx++;
+                    typewriterTimer = setTimeout(typeChar, 18);
+                }
+            }
+            typeChar();
+        }
+
+        function nextLoveScroll() {
+            selectLoveScroll((activeScrollIndex + 1) % loveLetters.length);
+        }
+
+        /* ==========================================
+           9. 360° 3D ROYAL ORBIT CAROUSEL
+        ========================================== */
+        const carouselRing = document.getElementById('carousel-ring');
+        let carouselAngle = 0;
+        let isCarouselAutoRotating = true;
+        let carouselInterval = null;
+
+        function setupOrbitCarousel() {
+            if (!carouselRing) return;
+            carouselRing.innerHTML = '';
+            const totalOrbitCards = 8;
+            const radius = window.innerWidth < 640 ? 160 : 250;
+
+            for (let i = 1; i <= totalOrbitCards; i++) {
+                const card = document.createElement('div');
+                card.className = "absolute inset-0 rounded-2xl overflow-hidden border-2 border-gold-500/40 shadow-2xl transition-transform duration-300 cursor-pointer";
+                const theta = (i / totalOrbitCards) * 360;
+                
+                card.style.transform = `rotateY(${theta}deg) translateZ(${radius}px)`;
+                card.innerHTML = `
+                    <img src="${i}.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'400\'><rect fill=\'%231a0b1c\' width=\'300\' height=\'400\'/><text fill=\'%23f5be25\' font-size=\'16\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'>Princess Relic ${i}</text></svg>';" 
+                         class="w-full h-full object-cover" alt="Orbit ${i}">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                        <span class="text-[10px] font-cinzel text-gold-300">RELIC 0${i}</span>
+                    </div>
+                `;
+                card.onclick = () => openLightbox(i - 1);
+                carouselRing.appendChild(card);
+            }
+
+            carouselInterval = setInterval(() => {
+                if (isCarouselAutoRotating) {
+                    carouselAngle += 0.35;
+                    carouselRing.style.transform = `rotateY(${carouselAngle}deg)`;
+                }
+            }, 30);
+
+            // Drag to revolve
+            let isDragging = false;
+            let startX = 0;
+            carouselRing.parentElement.addEventListener('mousedown', (e) => { isDragging = true; startX = e.clientX; });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                const delta = e.clientX - startX;
+                carouselAngle += delta * 0.4;
+                carouselRing.style.transform = `rotateY(${carouselAngle}deg)`;
+                startX = e.clientX;
+            });
+            carouselRing.parentElement.addEventListener('touchstart', (e) => { isDragging = true; startX = e.touches[0].clientX; }, { passive: true });
+            window.addEventListener('touchend', () => { isDragging = false; });
+            window.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                const delta = e.touches[0].clientX - startX;
+                carouselAngle += delta * 0.4;
+                carouselRing.style.transform = `rotateY(${carouselAngle}deg)`;
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+        }
+
+        function rotateCarouselStep(dir) {
+            carouselAngle += dir * 45;
+            carouselRing.style.transform = `rotateY(${carouselAngle}deg)`;
+            playCrystalBell(700);
+        }
+
+        function toggleCarouselAutoRotate() {
+            isCarouselAutoRotating = !isCarouselAutoRotating;
+            const btn = document.getElementById('carousel-play-btn');
+            btn.innerHTML = isCarouselAutoRotating ? '<i class="fa-solid fa-pause mr-1"></i> PAUSE ROTATION' : '<i class="fa-solid fa-play mr-1"></i> RESUME ROTATION';
+        }
+
+        /* ==========================================
+           10. 30-PORTRAIT BENTO GALLERY (1.jpg - 30.jpg)
+        ========================================== */
+        function renderVaultGallery() {
+            const grid = document.getElementById('vault-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            for (let i = 1; i <= TOTAL_PHOTOS; i++) {
+                const card = document.createElement('div');
+                card.className = "gallery-card relative group rounded-2xl overflow-hidden card-couture cursor-pointer aspect-[3/4] transition-all duration-500 hover:-translate-y-2 hover:border-rose-400";
+                card.setAttribute('data-index', i - 1);
+                card.setAttribute('data-category', i % 2 === 0 ? 'eyes' : 'royal');
+
+                card.innerHTML = `
+                    <img src="${i}.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'400\'><rect fill=\'%2315081a\' width=\'300\' height=\'400\'/><circle cx=\'150\' cy=\'180\' r=\'60\' fill=\'%23e11d48\' opacity=\'0.3\'/><text fill=\'%23f5be25\' font-family=\'serif\' font-size=\'16\' x=\'50%25\' y=\'75%25\' text-anchor=\'middle\'>Masterpiece ${i}</text></svg>';" 
+                         loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Princess Photo ${i}">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3.5">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-rose-500/30 text-rose-200">#${i < 10 ? '0' + i : i}</span>
+                            <i class="fa-solid fa-crown text-gold-400 text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="font-serif italic text-xs text-gold-200 line-clamp-2">"${photoCaptions[i-1]}"</p>
+                            <span class="text-[9px] font-cinzel text-neutral-400 tracking-wider block mt-1 uppercase">Inspect Relic <i class="fa-solid fa-expand ml-1"></i></span>
+                        </div>
+                    </div>
+                `;
+
+                card.onclick = () => openLightbox(i - 1);
+                grid.appendChild(card);
+            }
+        }
+
+        function filterVault(category) {
+            document.querySelectorAll('.vault-filter-btn').forEach(btn => btn.classList.remove('active', 'border-gold-500/40', 'text-gold-300'));
+            event.target.classList.add('active', 'border-gold-500/40', 'text-gold-300');
+
+            document.querySelectorAll('.gallery-card').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function togglePolaroidMode() {
+            isPolaroidActive = !isPolaroidActive;
+            const btn = document.getElementById('polaroid-toggle-btn');
+            const cards = document.querySelectorAll('.gallery-card');
+
+            if (isPolaroidActive) {
+                btn.classList.add('bg-rose-500', 'text-white');
+                cards.forEach(card => {
+                    card.classList.add('p-2', 'bg-white', 'text-neutral-900', 'rotate-1');
+                    card.style.background = '#FFFFFF';
+                });
+            } else {
+                btn.classList.remove('bg-rose-500', 'text-white');
+                cards.forEach(card => {
+                    card.classList.remove('p-2', 'bg-white', 'text-neutral-900', 'rotate-1');
+                    card.style.background = '';
+                });
+            }
+        }
+
+        /* ==========================================
+           11. LIGHTBOX SYSTEM
+        ========================================== */
+        const lightbox = document.getElementById('lightbox');
+        const lbImage = document.getElementById('lb-image');
+        const lbCaption = document.getElementById('lb-caption');
+        const lbCounter = document.getElementById('lb-counter');
+
+        function openLightbox(index) {
+            activePhotoIndex = index;
+            updateLightboxView();
+            lightbox.classList.remove('hidden');
+            playCrystalBell(600);
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            clearInterval(slideshowTimer);
+            slideshowTimer = null;
+            document.getElementById('slideshow-btn').innerHTML = '<i class="fa-solid fa-play mr-1"></i> Auto Play';
+        }
+
+        function changeLightboxPhoto(dir) {
+            activePhotoIndex = (activePhotoIndex + dir + TOTAL_PHOTOS) % TOTAL_PHOTOS;
+            updateLightboxView();
+            playCrystalBell(500 + (activePhotoIndex * 15));
+        }
+
+        function updateLightboxView() {
+            const photoNum = activePhotoIndex + 1;
+            lbImage.src = `${photoNum}.jpg`;
+            lbImage.onerror = function() {
+                this.onerror = null;
+                this.src = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='800'><rect fill='%23130718' width='600' height='800'/><text fill='%23f5be25' font-family='serif' font-size='24' x='50%' y='50%' text-anchor='middle'>Sovereign Relic ${photoNum}</text></svg>`;
+            };
+            lbCaption.innerText = `"${photoCaptions[activePhotoIndex]}"`;
+            lbCounter.innerText = `${photoNum} / ${TOTAL_PHOTOS}`;
+        }
+
+        function toggleSlideshow() {
+            const btn = document.getElementById('slideshow-btn');
+            if (slideshowTimer) {
+                clearInterval(slideshowTimer);
+                slideshowTimer = null;
+                btn.innerHTML = '<i class="fa-solid fa-play mr-1"></i> Auto Play';
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-pause mr-1"></i> Pause';
+                slideshowTimer = setInterval(() => {
+                    changeLightboxPhoto(1);
+                }, 2500);
+            }
+        }
+
+        /* ==========================================
+           12. GRAND CORONATION CLIMAX
+        ========================================== */
+        function executeGrandCoronation() {
+            const cert = document.getElementById('royal-certificate');
+            cert.classList.remove('hidden');
+            gsap.fromTo(cert, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8 });
+            
+            // Multiple layers of gold/rose confetti
+            fireImperialConfetti();
+            setTimeout(fireImperialConfetti, 600);
+            setTimeout(fireImperialConfetti, 1200);
+
+            playCrystalBell(1046.5); // High C
+            showToast("👑 OFFICIAL CORONATION COMPLETED: HER MAJESTY REIGNS FOREVER!");
+        }
+
+        function fireImperialConfetti() {
+            if (typeof confetti !== 'function') return;
+            confetti({
+                particleCount: 75,
+                spread: 90,
+                origin: { y: 0.65 },
+                colors: ['#F5BE25', '#F43F5E', '#FDA4AF', '#FFE080', '#9333EA']
+            });
+        }
+
+        /* ===================================================================
+           13. CELESTIAL INFINITE WISH SANCTUARY & COSMIC FINALE ENGINE
+           (Unlimited Text Sky Lanterns + 3D Shading + Ember Physics + Constellation Nova)
+        =================================================================== */
+        const sanctuaryPortal = document.getElementById('infinite-sanctuary');
+        const sCanvas = document.getElementById('sanctuary-canvas');
+        const sCtx = sCanvas ? sCanvas.getContext('2d') : null;
+
+        let stars = [];
+        let lanterns = [];
+        let embers = [];
+        let fireflies = [];
+        let constellating = false;
+        let sanctuaryAnimFrame = null;
+
+        const lanternPalettes = {
+            gold: { fillTop: '#FFE080', fillBottom: '#C48C08', glow: 'rgba(245, 190, 37, 0.45)', text: '#1a0d00' },
+            rose: { fillTop: '#FDA4AF', fillBottom: '#BE123C', glow: 'rgba(244, 63, 94, 0.45)', text: '#20050e' },
+            amethyst: { fillTop: '#E9D5FF', fillBottom: '#7E22CE', glow: 'rgba(147, 51, 234, 0.45)', text: '#130421' },
+            celestial: { fillTop: '#CFFAFE', fillBottom: '#0E7490', glow: 'rgba(6, 182, 212, 0.45)', text: '#021820' },
+        };
+
+        class Lantern {
+            constructor(text, style = 'gold', x = null, y = null, isSwarm = false) {
+                this.text = text;
+                this.style = style;
+                this.x = x !== null ? x : (Math.random() * (sCanvas.width - 160) + 80);
+                this.y = y !== null ? y : (sCanvas.height + Math.random() * 80 + 30);
+                this.targetX = null;
+                this.targetY = null;
+                this.width = isSwarm ? 54 : Math.min(130, Math.max(85, text.length * 3.8));
+                this.height = this.width * 1.35;
+                this.vy = isSwarm ? -(1.8 + Math.random() * 1.8) : -(1.0 + Math.random() * 1.2);
+                this.swayPhase = Math.random() * Math.PI * 2;
+                this.swaySpeed = 0.02 + Math.random() * 0.02;
+                this.swayAmplitude = 0.8 + Math.random() * 1.2;
+                this.scale = isSwarm ? (0.6 + Math.random() * 0.4) : 1.0;
+                this.alpha = 1.0;
+                this.flicker = Math.random();
+            }
+
+            update() {
+                this.swayPhase += this.swaySpeed;
+                this.flicker += 0.1;
+
+                if (constellating && this.targetX !== null) {
+                    // Smooth lerp to heart constellation target coordinates!
+                    this.x += (this.targetX - this.x) * 0.04;
+                    this.y += (this.targetY - this.y) * 0.04;
+                    this.scale += (0.75 - this.scale) * 0.04;
+                } else {
+                    this.x += Math.sin(this.swayPhase) * this.swayAmplitude;
+                    this.y += this.vy;
+                    // Perspective scale as it goes higher
+                    if (this.y < sCanvas.height * 0.6) {
+                        this.scale = Math.max(0.35, this.scale * 0.9992);
+                    }
+                }
+
+                // Spawn golden rising embers behind the lantern
+                if (Math.random() < 0.25) {
+                    embers.push({
+                        x: this.x + (Math.random() - 0.5) * 15,
+                        y: this.y + (this.height * this.scale * 0.5),
+                        vx: (Math.random() - 0.5) * 0.8,
+                        vy: Math.random() * 1.5 + 0.5,
+                        radius: Math.random() * 2 + 0.5,
+                        alpha: 0.9,
+                        color: this.style === 'rose' ? '#FDA4AF' : '#FFE080'
+                    });
+                }
+            }
+
+            draw(ctx) {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.scale(this.scale, this.scale);
+
+                const pal = lanternPalettes[this.style] || lanternPalettes.gold;
+                const w = this.width;
+                const h = this.height;
+
+                // 1. Ambient Outer Flame Glow
+                const glowRadius = w * 1.4;
+                const radGlow = ctx.createRadialGradient(0, h * 0.1, 5, 0, h * 0.1, glowRadius);
+                radGlow.addColorStop(0, pal.glow);
+                radGlow.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = radGlow;
+                ctx.beginPath();
+                ctx.arc(0, h * 0.1, glowRadius, 0, Math.PI * 2);
+                ctx.fill();
+
+                // 2. Silk Parchment Lantern Body (Curved Oval/Trapezoid)
+                ctx.beginPath();
+                ctx.moveTo(-w * 0.35, -h * 0.5);
+                ctx.quadraticCurveTo(-w * 0.55, 0, -w * 0.4, h * 0.5);
+                ctx.lineTo(w * 0.4, h * 0.5);
+                ctx.quadraticCurveTo(w * 0.55, 0, w * 0.35, -h * 0.5);
+                ctx.closePath();
+
+                const grad = ctx.createLinearGradient(0, -h * 0.5, 0, h * 0.5);
+                grad.addColorStop(0, pal.fillTop);
+                grad.addColorStop(0.65, pal.fillBottom);
+                grad.addColorStop(1, '#200505');
+                ctx.fillStyle = grad;
+                ctx.fill();
+
+                // 3. Bamboo Ribbing & Gold Edge
+                ctx.strokeStyle = 'rgba(255, 235, 150, 0.55)';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+
+                // 4. Central Flickering Candle Core
+                const flameY = h * 0.32;
+                const flameFlicker = Math.sin(this.flicker) * 2;
+                ctx.fillStyle = '#FFFFFF';
+                ctx.beginPath();
+                ctx.arc(0, flameY + flameFlicker, 4, 0, Math.PI * 2);
+                ctx.fill();
+
+                // 5. Her Typed Handwritten Text Inscription on Lantern Parchment
+                if (this.text && this.scale > 0.45) {
+                    ctx.save();
+                    ctx.fillStyle = pal.text;
+                    ctx.font = `600 ${Math.max(10, Math.min(13, w * 0.14))}px "Plus Jakarta Sans"`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    
+                    // Simple text line wrapping
+                    const words = this.text.split(' ');
+                    let line = '';
+                    let yOffset = -h * 0.12;
+                    for (let n = 0; n < words.length; n++) {
+                        const testLine = line + words[n] + ' ';
+                        const metrics = ctx.measureText(testLine);
+                        if (metrics.width > w * 0.72 && n > 0) {
+                            ctx.fillText(line, 0, yOffset);
+                            line = words[n] + ' ';
+                            yOffset += 13;
+                        } else {
+                            line = testLine;
+                        }
+                    }
+                    ctx.fillText(line, 0, yOffset);
+                    ctx.restore();
+                }
+
+                // 6. Dangling Royal Tassel
+                ctx.strokeStyle = 'rgba(245, 190, 37, 0.7)';
+                ctx.beginPath();
+                ctx.moveTo(0, h * 0.5);
+                ctx.lineTo(0, h * 0.5 + 14);
+                ctx.stroke();
+                ctx.fillStyle = '#F5BE25';
+                ctx.beginPath();
+                ctx.arc(0, h * 0.5 + 16, 2.5, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+        }
+
+        function initSanctuaryUniverse() {
+            if (!sCanvas || !sCtx) return;
+            sCanvas.width = window.innerWidth;
+            sCanvas.height = window.innerHeight;
+
+            // Generate 150 Deep Background Twinkling Stars
+            stars = [];
+            for (let i = 0; i < 160; i++) {
+                stars.push({
+                    x: Math.random() * sCanvas.width,
+                    y: Math.random() * sCanvas.height,
+                    radius: Math.random() * 1.6 + 0.3,
+                    alpha: Math.random(),
+                    speed: 0.01 + Math.random() * 0.02
+                });
+            }
+
+            // Generate 25 Interactive Magical Fireflies
+            fireflies = [];
+            for (let i = 0; i < 28; i++) {
+                fireflies.push({
+                    x: Math.random() * sCanvas.width,
+                    y: Math.random() * sCanvas.height,
+                    vx: (Math.random() - 0.5) * 1.2,
+                    vy: (Math.random() - 0.5) * 1.2,
+                    radius: Math.random() * 2 + 1,
+                    glow: Math.random() * Math.PI
+                });
+            }
+
+            // Interactive Click on Canvas to Chime & Highlight Lanterns
+            sCanvas.onclick = (e) => {
+                const rect = sCanvas.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const clickY = e.clientY - rect.top;
+                playCrystalBell(800 + Math.random() * 400);
+
+                // Burst interactive stardust at click
+                for (let i = 0; i < 15; i++) {
+                    embers.push({
+                        x: clickX,
+                        y: clickY,
+                        vx: (Math.random() - 0.5) * 4,
+                        vy: (Math.random() - 0.5) * 4,
+                        radius: Math.random() * 3 + 1,
+                        alpha: 1.0,
+                        color: '#FFE080'
+                    });
+                }
+            };
+        }
+
+        function renderSanctuaryUniverse() {
+            if (!sanctuaryActive || !sCtx) return;
+            const w = sCanvas.width;
+            const h = sCanvas.height;
+
+            // Deep Space Celestial Gradient
+            sCtx.fillStyle = '#030107';
+            sCtx.fillRect(0, 0, w, h);
+
+            // 1. Draw Twinkling Stars
+            for (let s of stars) {
+                s.alpha += s.speed;
+                const a = (Math.sin(s.alpha) + 1) / 2;
+                sCtx.fillStyle = `rgba(255, 245, 220, ${a * 0.8})`;
+                sCtx.beginPath();
+                sCtx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+                sCtx.fill();
+            }
+
+            // 2. Draw & Update Embers
+            for (let i = embers.length - 1; i >= 0; i--) {
+                const eb = embers[i];
+                eb.x += eb.vx;
+                eb.y -= eb.vy;
+                eb.alpha -= 0.015;
+                if (eb.alpha <= 0) {
+                    embers.splice(i, 1);
+                    continue;
+                }
+                sCtx.fillStyle = eb.color;
+                sCtx.globalAlpha = eb.alpha;
+                sCtx.beginPath();
+                sCtx.arc(eb.x, eb.y, eb.radius, 0, Math.PI * 2);
+                sCtx.fill();
+                sCtx.globalAlpha = 1.0;
+            }
+
+            // 3. Draw & Update Floating Lanterns
+            for (let i = lanterns.length - 1; i >= 0; i--) {
+                const l = lanterns[i];
+                l.update();
+                l.draw(sCtx);
+
+                // Cull lanterns that fly way past upper atmosphere (unless constellating)
+                if (!constellating && l.y < -150) {
+                    lanterns.splice(i, 1);
+                }
+            }
+
+            // 4. Draw & Update Fireflies
+            for (let f of fireflies) {
+                f.x += f.vx;
+                f.y += f.vy;
+                f.glow += 0.05;
+                if (f.x < 0 || f.x > w) f.vx *= -1;
+                if (f.y < 0 || f.y > h) f.vy *= -1;
+
+                const glowA = (Math.sin(f.glow) + 1) / 2;
+                sCtx.fillStyle = `rgba(255, 220, 100, ${glowA * 0.85})`;
+                sCtx.beginPath();
+                sCtx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
+                sCtx.fill();
+            }
+
+            sanctuaryAnimFrame = requestAnimationFrame(renderSanctuaryUniverse);
+        }
+
+        function openWishSanctuary() {
+            sanctuaryActive = true;
+            sanctuaryPortal.classList.remove('hidden');
+            gsap.fromTo(sanctuaryPortal, { opacity: 0 }, { opacity: 1, duration: 0.6 });
+            initSanctuaryUniverse();
+            renderSanctuaryUniverse();
+            
+            // Release 3 welcoming lanterns immediately if sky is empty
+            if (lanterns.length === 0) {
+                spawnWelcomeLanterns();
+            }
+            playCrystalBell(900);
+        }
+
+        function closeWishSanctuary() {
+            gsap.to(sanctuaryPortal, {
+                opacity: 0,
+                duration: 0.5,
+                onComplete: () => {
+                    sanctuaryPortal.classList.add('hidden');
+                    sanctuaryActive = false;
+                    if (sanctuaryAnimFrame) cancelAnimationFrame(sanctuaryAnimFrame);
+                }
+            });
+        }
+
+        function spawnWelcomeLanterns() {
+            setTimeout(() => addCustomWishLantern("My Sovereign Queen 👑", "gold"), 200);
+            setTimeout(() => addCustomWishLantern("Most Beautiful Girl on Earth ✨", "rose"), 700);
+            setTimeout(() => addCustomWishLantern("Eternally In Love With You 💖", "amethyst"), 1200);
+        }
+
+        function handleWishSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('wish-input');
+            const wishText = input.value.trim();
+            if (!wishText) return;
+
+            addCustomWishLantern(wishText, currentLanternStyle);
+            input.value = '';
+            document.getElementById('char-counter').innerText = '90';
+            
+            // Dismiss hint after first wish
+            const hint = document.getElementById('sanctuary-hint');
+            if (hint) hint.style.opacity = '0';
+        }
+
+        function addCustomWishLantern(text, style) {
+            wishCount++;
+            document.getElementById('wish-counter-badge').innerText = `WISHES IN THE STARS: ${wishCount}`;
+            
+            const l = new Lantern(text, style, null, null, false);
+            lanterns.push(l);
+            playCrystalBell(600 + (wishCount * 25));
+            showToast("✨ Lantern Released to the Heavens!");
+        }
+
+        function fillPresetWish(text) {
+            const input = document.getElementById('wish-input');
+            input.value = text;
+            input.focus();
+        }
+
+        function setLanternStyle(style) {
+            currentLanternStyle = style;
+            showToast(`Lantern Silk: ${style.toUpperCase()}`);
+        }
+
+        function launchLanternSwarm(count = 20) {
+            playCrystalBell(1100);
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const styles = ['gold', 'rose', 'amethyst', 'celestial'];
+                    const randomStyle = styles[Math.floor(Math.random() * styles.length)];
+                    const miniWish = "✨ Forever";
+                    const l = new Lantern(miniWish, randomStyle, null, null, true);
+                    lanterns.push(l);
+                }, i * 90);
+            }
+            showToast("🌌 20 Royal Lanterns ascending together!");
+        }
+
+        // CRAZY COSMIC FINALE: Gathers all lanterns into a massive glowing Heart Constellation!
+        function triggerCosmicConstellationNova() {
+            constellating = true;
+            playCrystalBell(1318.51); // High E
+            fireImperialConfetti();
+            showToast("💖 COSMIC NOVA: Aligning all wishes into the Celestial Heart!");
+
+            // Ensure we have enough lanterns to form a grand heart shape
+            if (lanterns.length < 32) {
+                for (let i = lanterns.length; i < 36; i++) {
+                    const l = new Lantern("👑 My Queen", 'gold', Math.random() * sCanvas.width, sCanvas.height + 50, true);
+                    lanterns.push(l);
+                }
+            }
+
+            const cx = sCanvas.width / 2;
+            const cy = sCanvas.height * 0.42;
+            const heartSize = Math.min(sCanvas.width, sCanvas.height) * 0.024;
+
+            // Parametric Heart Formula: x = 16 sin^3(t), y = -(13 cos(t) - 5 cos(2t) - 2 cos(3t) - cos(4t))
+            lanterns.forEach((l, index) => {
+                const t = (index / lanterns.length) * Math.PI * 2;
+                const hx = 16 * Math.pow(Math.sin(t), 3);
+                const hy = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+                l.targetX = cx + (hx * heartSize);
+                l.targetY = cy + (hy * heartSize);
+            });
+
+            // Burst shooting star comets
+            for (let k = 0; k < 60; k++) {
+                embers.push({
+                    x: cx + (Math.random() - 0.5) * 100,
+                    y: cy + (Math.random() - 0.5) * 100,
+                    vx: (Math.random() - 0.5) * 8,
+                    vy: (Math.random() - 0.5) * 8,
+                    radius: Math.random() * 3 + 1.5,
+                    alpha: 1.0,
+                    color: '#FFE080'
+                });
+            }
+        }
+
+        /* ==========================================
+           14. TOAST NOTIFICATIONS & HELPER UTILITIES
+        ========================================== */
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 z-[999999] px-5 py-2.5 rounded-full couture-glass border border-gold-400 text-xs font-cinzel text-gold-200 shadow-2xl transition-all duration-300 pointer-events-none";
+            toast.innerText = msg;
+            document.body.appendChild(toast);
+            gsap.fromTo(toast, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3 });
+            setTimeout(() => {
+                gsap.to(toast, { y: -20, opacity: 0, duration: 0.4, onComplete: () => toast.remove() });
+            }, 2600);
+        }
+
+        // Live Character counter for wish input
+        const wishInput = document.getElementById('wish-input');
+        if (wishInput) {
+            wishInput.addEventListener('input', (e) => {
+                const remaining = 90 - e.target.value.length;
+                document.getElementById('char-counter').innerText = remaining;
+            });
+        }
+
+        /* ==========================================
+           15. WINDOW INITIALIZATION
+        ========================================== */
+        window.addEventListener('DOMContentLoaded', () => {
+            initLiquidWebGL();
+            renderIrisObservatory();
+            renderLiveECG();
+            initGoldScratchCard();
+            selectLoveScroll(0);
+            setupOrbitCarousel();
+            renderVaultGallery();
+        });
+    </script>
+</body>
+</html>
